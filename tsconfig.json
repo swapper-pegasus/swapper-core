@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true /* Enable project compilation */,
+  },
+  "references": [
+    {
+      "path": "./packages/swapper-components"
+    },
+    {
+      "path": "./packages/swapper-elements"
+    },
+    {
+      "path": "./packages/swapper-nodechain-client"
+    },
+    {
+      "path": "./packages/swapper-wallets"
+    },
+    {
+      "path": "./packages/swapper-config"
+    },
+  ],
+  "files": []
+}

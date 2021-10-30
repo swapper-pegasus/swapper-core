@@ -1,0 +1,38 @@
+{
+  "name": "@swapper-org/swapper-nodechain-client",
+  "version": "0.0.30",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "(GPL-3.0-or-later OR AGPL-3.0-or-later)",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "yarn build:cjs",
+    "build:dev": "yarn tsc -b",
+    "build:cjs": "yarn tsc --project ./tsconfig.build.json",
+    "test": "echo 'No tests'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:swapper-org/swapper-core.git",
+    "directory": "packages/swapper-nodechain-client"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.3"
+  },
+  "devEngines": {
+    "node": ">=14.x"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "qs": "^6.10.1"
+  }
+}

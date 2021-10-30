@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EthWallet private key 0x prefixed 1`] = `[Error: privateKey must be provided without 0x-prefix]`;
+
+exports[`EthWallet private key no hexa 1`] = `[Error: privateKey must be hex]`;
+
+exports[`EthWallet transfer 1`] = `
+Object {
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": Object {
+    "broadcasted": "0xf5249fd41daaad2b69b61ba30ff2fe23ea3c58bc25be9b11e7c9df420c7b1914",
+  },
+}
+`;

@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@swapper-org/swapper-elements": ["../swapper-elements"]
+    }
+  },
+  "references": [
+    {
+        "path": "../swapper-elements"
+    },
+  ],
+  "include": ["./src"],
+  "exclude": [
+    "packages/*/node_modules", 
+    "packages/*/lib",
+    "packages/*/coverage",
+    "packages/*/dist",
+    "packages/*/*.spec.ts",
+    "packages/*/*tests"
+  ],
+}

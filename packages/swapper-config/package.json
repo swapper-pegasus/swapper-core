@@ -1,0 +1,36 @@
+{
+  "name": "@swapper-org/swapper-config",
+  "version": "0.0.30",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "module": "lib/index.js",
+  "license": "(GPL-3.0-or-later OR AGPL-3.0-or-later)",
+  "scripts": {
+    "build": "yarn build:cjs",
+    "build:dev": "yarn tsc -b",
+    "build:cjs": "yarn tsc --project ./tsconfig.build.json",
+    "test": "echo 'No tests'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:swapper-org/swapper-core.git",
+    "directory": "packages/swapper-config"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.26",
+    "@types/react-dom": "^17.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.3"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devEngines": {
+    "node": ">=14.x"
+  }
+}

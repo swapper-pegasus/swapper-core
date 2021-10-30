@@ -1,0 +1,51 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^8.4.0",
+    "eslint-config-prettier": "^8.3.0",
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "yarn run clean-buildinfo && yarn run clean-lib",
+    "clean-files": "yarn run clean-buildinfo && yarn run clean-type-files && yarn run clean-js-files && yarn run clean-map-files",
+    "clean-type-files": "find ./packages/* -name '*.d.ts' -type f | xargs rm",
+    "clean-js-files": "find ./packages/*/src -name '*.js' -type f | xargs rm",
+    "clean-map-files": "find ./packages/*/src -name '*.js.map' -type f | xargs rm",
+    "clean-buildinfo": "find ./packages/* -name '*.tsbuildinfo' -type f | xargs rm",
+    "clean-nodemodules": "rm -rf ./packages/*/node_modules",
+    "clean-lib": "rm -rf ./packages/*/lib",
+    "build": "yarn tsc -b",
+    "build-watch": "yarn tsc -b -w",
+    "start-storybook": "yarn run build-watch & yarn workspace @swapper-org/swapper-storybook run storybook",
+    "build-storybook": "yarn build && yarn workspace @swapper-org/swapper-storybook run build-storybook",
+    "publish": "yarn run build && lerna publish from-git --yes",
+    "version": "lerna version",
+    "lint": "eslint ./packages --cache --ext .ts,.tsx",
+    "test": "lerna run test"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:swapper-org/swapper-core.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "@types/node": "^16.11.11",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.2"
+  }
+}

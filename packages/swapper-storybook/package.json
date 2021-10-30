@@ -1,0 +1,47 @@
+{
+  "name": "@swapper-org/swapper-storybook",
+  "version": "0.0.30",
+  "description": "> TODO: description",
+  "author": "Hippocampus <hippocampus@swapper.market>",
+  "license": "(GPL-3.0-or-later OR AGPL-3.0-or-later)",
+  "main": "lib/storybook.js",
+  "private": true,
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build:cjs": "echo 'no command'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:swapper-org/swapper-core.git",
+    "directory": "packages/swapper-storybook"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@storybook/addon-actions": "^6.3.9",
+    "@storybook/addon-controls": "^6.4.7",
+    "@storybook/addon-essentials": "^6.3.9",
+    "@storybook/addon-links": "^6.3.9",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/react": "^6.3.9",
+    "babel-loader": "^8.2.2",
+    "chromatic": "^6.0.5"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "use-http": "^1.0.26"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "@swapper-org/swapper-wallets",
+  "version": "0.0.30",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "module": "lib/index.js",
+  "license": "(GPL-3.0-or-later OR AGPL-3.0-or-later)",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "yarn build:cjs",
+    "build:dev": "yarn tsc -b",
+    "build:cjs": "yarn tsc --project ./tsconfig.build.json",
+    "test": "echo 'no tests'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:swapper-org/swapper-core.git",
+    "directory": "packages/swapper-wallets"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.0",
+    "@types/hdkey": "^2.0.0",
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.3"
+  },
+  "devEngines": {
+    "node": ">=14.x"
+  },
+  "dependencies": {
+    "@ethereumjs/common": "^2.6.0",
+    "@ethereumjs/tx": "^3.4.0",
+    "axios": "^0.24.0",
+    "bip39": "^3.0.4",
+    "bn.js": "5.1.2",
+    "hdkey": "^2.0.1",
+    "qs": "^6.10.1"
+  },
+  "peerDependencies": {
+    "@swapper-org/swapper-nodechain-client": "latest"
+  }
+}

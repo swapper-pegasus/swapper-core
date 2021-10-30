@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@swapper-org/swapper-nodechain-client": ["../swapper-nodechain-client"]
+    }
+  },
+  "references": [
+    {
+        "path": "../swapper-nodechain-client"
+    },
+  ],
+  "include": ["./src"],
+  "exclude": [
+    "./src/__tests__",
+    "node_modules", 
+    "lib",
+    "coverage",
+    "dist",
+    "*.spec.ts",
+    "*.test.ts",
+    "*tests"
+  ],
+}
