@@ -19,6 +19,6 @@
 
 | package | npm | tests | coverage |
 | ------- | :---: | :-----: | --------: |
-| [@swapper-org/swapper-elements](/packages/swapper-elements) | ![Github lerna version](https://img.shields.io/github/lerna-json/v/swapper-org/swapper-core) | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/swapper-org/swapper-core/Test) | [![codecov](https://codecov.io/gh/swapper-org/swapper-core/branch/feature/hip-fixBugs/graph/badge.svg?token=2PKBEQTHD8)](https://codecov.io/gh/swapper-org/swapper-core)
+| [@swapper-org/swapper-elements](/packages/swapper-elements) | ![Github lerna version](https://img.shields.io/github/lerna-json/v/swapper-org/swapper-core) | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/swapper-org/swapper-core/Test) | [![codecov](https://codecov.io/gh/swapper-org/swapper-core/branch/develop/graph/badge.svg?token=BORKZTJDWG)](https://codecov.io/gh/swapper-org/swapper-core)
   
 </div>
