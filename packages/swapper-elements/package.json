@@ -25,9 +25,11 @@
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.26",
     "@types/react-dom": "^17.0.9",
+    "@types/react-test-renderer": "^17.0.1",
     "jest": "^27.4.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
     "ts-jest": "^27.1.0",
     "typescript": "^4.4.3"
   },
@@ -37,5 +39,8 @@
   },
   "devEngines": {
     "node": ">=14.x"
+  },
+  "dependencies": {
+    "@heroicons/react": "^1.0.5"
   }
 }
