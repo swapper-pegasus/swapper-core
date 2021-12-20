@@ -1,11 +1,11 @@
 import React from 'react'
-import { Icon } from '@swapper-org/swapper-elements'
+import { Icon, types } from '@swapper-org/swapper-elements'
 export default {
   component: Icon,
   title: 'Icon',
   argTypes: {
     type: {
-      options: ['info'],
+      options: types,
       control: { type: 'radio' }
     }
   }

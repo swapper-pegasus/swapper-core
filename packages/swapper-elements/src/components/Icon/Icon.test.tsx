@@ -1,9 +1,9 @@
 import React from 'react'
 import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
-import { Icon } from './Icon'
+import { Icon, types } from './Icon'
 
-const icons = ['info', 'success', 'error', 'no-icon-defined']
+const icons = [...types, 'no-icon-defined']
 
 describe('Icon', () => {
   icons.forEach((iconType) => {
