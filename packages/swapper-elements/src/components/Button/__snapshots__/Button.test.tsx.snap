@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Render default 1`] = `
+<button
+  className="disabled:cursor-not-allowed disabled:opacity-20 bg-primary rounded-full hover:bg-primary-dark text-white text-sm px-8 py-2"
+  onClick={[MockFunction]}
+>
+  <p>
+    children
+  </p>
+</button>
+`;
+
+exports[`Button Render disabled 1`] = `
+<button
+  className="disabled:cursor-not-allowed disabled:opacity-20 bg-primary rounded-full hover:bg-primary-dark text-white text-sm px-8 py-2"
+  disabled={true}
+  onClick={[MockFunction]}
+/>
+`;
+
+exports[`Button Render link 1`] = `
+<button
+  className="text-primary underline"
+  onClick={[MockFunction]}
+>
+  <p>
+    children
+  </p>
+</button>
+`;
+
+exports[`Button Render withGradient 1`] = `
+<button
+  className="disabled:cursor-not-allowed disabled:opacity-20 bg-primary rounded-full hover:bg-primary-dark text-white text-sm px-8 py-2 bg-gradient-to-r from-primary-darkest to-primary-lightest hover:bg-blue-500"
+  onClick={[MockFunction]}
+/>
+`;
