@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom'
 import { Button } from '../Button'
 
 type Props = {
-  title: string,
-  description: string,
+  title?: string,
+  description: JSX.Element | string,
+  icon: JSX.Element | string,
   isOpen: boolean,
   onClose: () => void;
 };
 
-export function Modal ({ title, description, isOpen, onClose }: Props) {
+export function Modal ({ title, icon, description, isOpen, onClose }: Props) {
   const modalContainer = document.querySelector('#modalContainer')
 
   if (!isOpen || !modalContainer) {
@@ -22,24 +23,32 @@ export function Modal ({ title, description, isOpen, onClose }: Props) {
             <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center">
               <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
               <span className="hidden" aria-hidden="true">&#8203;</span>
-              <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all">
-                <div className="bg-white px-4 pt-5 pb-4">
+              <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all p-6">
+                <div className="bg-white">
                   <div className="flex items-start">
-                    <div className="mt-3 text-center">
-                      <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                    <div className="mt-3">
+                      {
+                        title && <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
                         {title}
                       </h3>
-                      <div className="mt-2">
-                        <p className="text-sm text-gray-500">
+                      }
+                      <div className="flex mt-2">
+                        {
+                          icon &&
+                          <div className='px-2'>
+                            { icon }
+                          </div>
+                        }
+                        <p className="text-sm text-swpGray">
                           {description}
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 text-center">
+                <div className="bg-white pt-6 py-3 text-right">
                   <Button onClick={() => onClose()}>
-                    <span>Aceptar</span>
+                    <span>Continuar</span>
                   </Button>
                 </div>
               </div>

@@ -14,6 +14,21 @@ module.exports = {
       },
       swpGray: {
         DEFAULT: '#38393C'
+      },
+      warning: {
+        darkest: '#F97316',
+        dark: '#C2410C',
+        DEFAULT: '#FFEDD5'
+      },
+      error: {
+        darkest: colors.red['600'],
+        dark: colors.red['400'],
+        DEFAULT: colors.red['100']
+      },
+      success: {
+        darkest: colors.green['600'],
+        dark: colors.green['400'],
+        DEFAULT: colors.green['100']
       }
     },
     gradientColorStops: (theme: (value: string) => object) => ({

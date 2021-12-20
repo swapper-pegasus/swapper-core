@@ -1,6 +1,6 @@
 {
   "name": "@swapper-org/swapper-wallets",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "module": "lib/index.js",
