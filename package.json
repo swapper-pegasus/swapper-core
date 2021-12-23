@@ -20,7 +20,7 @@
     "build-watch": "yarn tsc -b -w",
     "start-storybook": "yarn run build-watch & yarn workspace @swapper-org/swapper-storybook run storybook",
     "build-storybook": "yarn build && yarn workspace @swapper-org/swapper-storybook run build-storybook",
-    "publish": "yarn run build && lerna publish from-git --yes",
+    "publish": "yarn run build && lerna publish from-package --yes",
     "version": "lerna version",
     "lint": "eslint ./packages --cache --ext .ts,.tsx",
     "test": "lerna run test"
