@@ -5,6 +5,7 @@ type Props = {
   children?: JSX.Element | string;
   disabled?: boolean,
   withGradient?: boolean,
+  dataTestId?: string,
   type?: string,
 };
 
@@ -13,6 +14,7 @@ export function Button ({
   children,
   disabled,
   withGradient,
+  dataTestId,
   type
 }: Props) {
   const style = 'disabled:cursor-not-allowed disabled:opacity-20 bg-primary rounded-full hover:bg-primary-dark text-white text-sm px-8 py-2'
@@ -31,6 +33,7 @@ export function Button ({
         className={finalStyle()}
         onClick={onClick}
         disabled={disabled}
+        data-testid={dataTestId}
       >
         {children}
       </button>
