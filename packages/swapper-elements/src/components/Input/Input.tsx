@@ -29,6 +29,7 @@ export function Input ({
     <div className='flex flex-col'>
       {label && <label className={styleLabel} htmlFor={name}>{label}</label>}
       <input
+        data-testid={`${name}-input`}
         disabled={disabled}
         type={type}
         id={name}
@@ -38,7 +39,7 @@ export function Input ({
         value={value}
       />
       {
-        error ? <div className={styleError}>{error}</div> : <div className={`${styleError} ${styleHidden}`}>-</div>
+        error ? <div data-testid={`error-${name}-input`} className={styleError}>{error}</div> : <div className={`${styleError} ${styleHidden}`}>-</div>
       }
     </div>
   )

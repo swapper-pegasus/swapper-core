@@ -5,7 +5,7 @@ import { Button } from '../Button'
 type Props = {
   title?: string,
   description: JSX.Element | string,
-  icon: JSX.Element | string,
+  icon?: JSX.Element | string,
   isOpen: boolean,
   onClose: () => void;
 };
@@ -39,15 +39,15 @@ export function Modal ({ title, icon, description, isOpen, onClose }: Props) {
                             { icon }
                           </div>
                         }
-                        <p className="text-sm text-swpGray">
+                        <div className="text-sm text-swpGray">
                           {description}
-                        </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="bg-white pt-6 py-3 text-right">
-                  <Button onClick={() => onClose()}>
+                  <Button dataTestId='modal-accept-button' onClick={() => onClose()}>
                     <span>Continuar</span>
                   </Button>
                 </div>
