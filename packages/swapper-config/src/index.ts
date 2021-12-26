@@ -10,15 +10,21 @@ module.exports = {
         dark: '#3461A8',
         DEFAULT: '#517BBE',
         light: '#769BD5',
-        lightest: '#A7C1EA'
+        lightest: '#ecf2fe'
       },
       swpGray: {
-        DEFAULT: '#38393C'
+        darkest: '#0E0F15',
+        dark: '#101011',
+        DEFAULT: '#38393C',
+        light: '#57595D',
+        lightest: '#BAB7AF'
       },
       warning: {
         darkest: '#F97316',
         dark: '#C2410C',
-        DEFAULT: '#FFEDD5'
+        DEFAULT: '#FFEDD5',
+        light: '#FFF7EC',
+        lightest: '#FFFDFB'
       },
       error: {
         darkest: colors.red['600'],
@@ -42,7 +48,7 @@ module.exports = {
       }
     }),
     fontFamily: {
-      sans: ['Graphik', 'Open Sans']
+      sans: ['Open Sans', 'Graphik']
     }
   },
   variants: {
