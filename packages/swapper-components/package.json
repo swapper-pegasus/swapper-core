@@ -9,7 +9,7 @@
     "build": "yarn build:cjs",
     "build:dev": "yarn tsc -b",
     "build:cjs": "yarn tsc --project ./tsconfig.build.json",
-    "test": "echo 'No tests'"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
