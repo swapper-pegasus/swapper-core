@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EthWallet getAddresses 1`] = `
+Array [
+  "0x625acaedef812d2842efd2fb0294682a868455bd",
+]
+`;
+
+exports[`EthWallet getBalance 1`] = `"1"`;
+
+exports[`EthWallet transfer 1`] = `
+Object {
+  "id": 1,
+  "jsonrpc": "broadcastTransaction",
+  "result": Object {
+    "broadcasted": "0x213123123123123",
+  },
+}
+`;
