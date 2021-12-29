@@ -36,6 +36,11 @@ jobs:
                   PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
               run: |
                   yarn lint
+            - name: yarn build
+              env:
+                  PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+              run: |
+                  yarn build
             - name: yarn test
               env:
                   PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
