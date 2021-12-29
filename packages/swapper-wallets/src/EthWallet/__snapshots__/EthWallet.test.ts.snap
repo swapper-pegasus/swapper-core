@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EthWallet exportPrivateKey 1`] = `"6fa76995e9a39e852f893e8347c662453a5d517846d150bdf3ddf7601c4bc74c"`;
+
 exports[`EthWallet getAddresses 1`] = `
 Array [
   "0x625acaedef812d2842efd2fb0294682a868455bd",

@@ -26,4 +26,9 @@ describe('EthWallet', () => {
     const result = await ethWallet.getBalance()
     expect(result).toMatchSnapshot()
   })
+  it('exportPrivateKey', async () => {
+    const ethWallet = new EthWallet(nodechainUrlServer, Chain.Ropsten, nmenomic, derivativePath)
+    const result = await ethWallet.exportPrivateKey()
+    expect(result).toMatchSnapshot()
+  })
 })
