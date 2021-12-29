@@ -1,6 +1,6 @@
 {
   "name": "@swapper-org/swapper-config",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "module": "lib/index.js",

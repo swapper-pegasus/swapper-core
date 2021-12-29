@@ -16,4 +16,19 @@ describe('EthWallet', () => {
     const result = await ethWallet.transfer({ from: ethAddress, to: ethAddressB, value: new BN('1000000000000000000'), data: '' })
     expect(result).toMatchSnapshot()
   })
+  it('getAddresses', async () => {
+    const ethWallet = new EthWallet(nodechainUrlServer, Chain.Ropsten, nmenomic, derivativePath)
+    const result = await ethWallet.getAddresses()
+    expect(result).toMatchSnapshot()
+  })
+  it('getBalance', async () => {
+    const ethWallet = new EthWallet(nodechainUrlServer, Chain.Ropsten, nmenomic, derivativePath)
+    const result = await ethWallet.getBalance()
+    expect(result).toMatchSnapshot()
+  })
+  it('exportPrivateKey', async () => {
+    const ethWallet = new EthWallet(nodechainUrlServer, Chain.Ropsten, nmenomic, derivativePath)
+    const result = await ethWallet.exportPrivateKey()
+    expect(result).toMatchSnapshot()
+  })
 })

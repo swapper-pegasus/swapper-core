@@ -39,26 +39,22 @@ jobs:
                   PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
               run: |
                   yarn lint
+            - name: yarn build
+              env:
+                  PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+              run: |
+                  yarn build
             - name: yarn test
               env:
                   PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
               run: |
-                  yarn workspace @swapper-org/swapper-elements run test
-                  yarn workspace @swapper-org/swapper-components run test
+                  yarn test
             - uses: codecov/codecov-action@v2
               with:
                 token: ${{ secrets.CODECOV_TOKEN_CORE }} # not required for public repos
-                files: ${{github.workspace}}/packages/swapper-elements/coverage/lcov.info # optional
-                flags: swapper-elements # optional
+                files: ${{github.workspace}}/packages/swapper-elements/coverage/lcov.info,${{github.workspace}}/packages/swapper-components/coverage/lcov.info,${{github.workspace}}/packages/swapper-wallets/coverage/lcov.info # optional
+                flags: swapper-core # optional
                 name: codecov # optional
-                fail_ci_if_error: true # optional (default = false)
-                verbose: true # optional (default = false)
-            - uses: codecov/codecov-action@v2
-              with:
-                token: ${{ secrets.CODECOV_TOKEN_CORE }} # not required for public repos
-                files: ${{github.workspace}}/packages/swapper-components/coverage/lcov.info # optional
-                flags: swapper-components # optional
-                name: codecov swapper-components # optional
                 fail_ci_if_error: true # optional (default = false)
                 verbose: true # optional (default = false)
             - name: yarn publish
