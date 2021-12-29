@@ -82,7 +82,6 @@ describe('SwapperNodechainClient', () => {
                 nonce: 0  
             }
             const rawTransaction = await web3.eth.accounts.signTransaction(tx, privateKeyEthAddress);
-            console.log('rawTransaction', rawTransaction)
             const result = await ethClient.broadcastTransaction({rawTransaction: rawTransaction.rawTransaction})
             expect(result).toMatchSnapshot()
         })
