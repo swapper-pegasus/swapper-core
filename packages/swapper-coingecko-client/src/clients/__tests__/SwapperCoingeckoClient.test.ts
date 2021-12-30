@@ -35,7 +35,7 @@ describe('SwapperCoingeckoClient', () => {
     it('not supported token', async () => {
       const coingeckoClient: SwapperCoingeckoClient = new SwapperCoingeckoClient('https://api.coingecko.com/api/v3')
       const result = await coingeckoClient.getTokensPriceInUsd({ tokens: ['invent', 'usdc', 'busd'] })
-      expect(result).toMatchSnapshot()
+      expect(roundPrices(result)).toMatchSnapshot()
     })
   })
   it('getTokens', async () => {

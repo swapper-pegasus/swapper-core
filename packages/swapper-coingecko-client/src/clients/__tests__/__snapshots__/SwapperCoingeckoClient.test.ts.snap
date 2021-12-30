@@ -1,14 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SwapperCoingeckoClient getTokenPrice not supported token 1`] = `
-Object {
-  "binance-usd": Object {
-    "usd": 0.998908,
-  },
-  "usd-coin": Object {
-    "usd": 1,
-  },
-}
+Array [
+  1,
+  1,
+]
 `;
 
 exports[`SwapperCoingeckoClient getTokenPrice success 1`] = `
