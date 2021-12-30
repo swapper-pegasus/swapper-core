@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SwapperCoingeckoHandler error error coingecko 1`] = `[Error: custom error]`;
+
+exports[`SwapperCoingeckoHandler error error without data 1`] = `[Error]`;
+
+exports[`SwapperCoingeckoHandler error error without response 1`] = `[Error]`;
+
+exports[`SwapperCoingeckoHandler success 1`] = `"Success"`;

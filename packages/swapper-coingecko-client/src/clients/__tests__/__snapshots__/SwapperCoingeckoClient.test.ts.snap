@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SwapperCoingeckoClient getTokenPrice not supported token 1`] = `
+Array [
+  1,
+  1,
+]
+`;
+
+exports[`SwapperCoingeckoClient getTokenPrice success 1`] = `
+Array [
+  1,
+  1,
+  1,
+]
+`;
+
+exports[`SwapperCoingeckoClient getTokens 1`] = `
+Array [
+  Object {
+    "id": "tether",
+    "name": "Thether",
+    "symbol": "usdt",
+  },
+  Object {
+    "id": "binance-usd",
+    "name": "Binance USD",
+    "symbol": "busd",
+  },
+]
+`;

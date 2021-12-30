@@ -1,6 +1,6 @@
 {
   "name": "@swapper-org/swapper-nodechain-client",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "(GPL-3.0-or-later OR AGPL-3.0-or-later)",
