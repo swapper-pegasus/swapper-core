@@ -12,7 +12,7 @@ import {
   Token
 } from './types'
 
-const USD_SYMBOL = 'usd'
+export const USD_SYMBOL = 'usd'
 
 export default class SwapperCoingeckoClient implements ISwapperCoingeckoClient {
   private client: HttpClient

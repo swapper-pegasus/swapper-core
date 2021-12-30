@@ -9,7 +9,7 @@ import {
 
 type Data = Params;
 
-const THRESHOLD_AVOID_REQUEST_URL_TOO_LARGE = 4096
+export const THRESHOLD_AVOID_REQUEST_URL_TOO_LARGE = 4096
 
 export default class SwapperCoingeckoConfigBuilder implements RequestConfigBuilder {
   private baseUrl: string
