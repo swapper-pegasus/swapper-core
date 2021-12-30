@@ -12,15 +12,9 @@ export type ErrorResponse<T = any> = {
   statusText: string;
   headers: any;
 };
-type ErrorDataCoingecko = {
-  code: number,
-  message: string,
-}
 
 export type ErrorCoingecko = {
-  id: number,
-  jsonrpc: string,
-  error: ErrorDataCoingecko
+  error: string
 }
 
 export type Response<T = any> = {

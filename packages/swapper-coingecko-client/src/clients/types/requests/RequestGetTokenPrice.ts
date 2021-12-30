@@ -1,3 +1,3 @@
 export type RequestGetTokenPrice = {
-    tokenSymbol: string;
+    tokens: Array<string>;
 };

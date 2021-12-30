@@ -1,5 +1,2 @@
-export type ResponseGetTokens = {
-    result: {
-        tokens: Array<string>,
-    };
-};
+import { Token } from '../commons/Token'
+export type ResponseGetTokens = Array<Token>;

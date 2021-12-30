@@ -1,5 +1,1 @@
-export type ResponseGetTokenPrice = {
-    result: {
-        price: string,
-    };
-};
+export type ResponseGetTokenPrice = object;

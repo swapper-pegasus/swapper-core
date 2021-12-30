@@ -22,7 +22,7 @@ export default class SwapperCoingeckoHandler implements ResponseHandler {
     error: HttpClientError<ErrorResponse<ErrorCoingecko>>
   ): never {
     if (error.response?.data?.error) {
-      throw new Error(error.response?.data?.error?.message)
+      throw new Error(error.response?.data?.error)
     }
     throw new Error(error.message)
   }

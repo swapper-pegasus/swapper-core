@@ -4,36 +4,49 @@ import SwapperCoingeckoConfigBuilder from '../SwapperCoingeckoConfigBuilder'
 import SwapperCoingeckoHandler from '../SwapperCoingeckoHandler'
 import {
   // RESPONSE
-  ResponseGetConversionRate,
   ResponseGetTokenPrice,
   ResponseGetTokens,
   // REQUEST
   RequestGetTokenPrice,
-  RequestCoversionRate
+  // COMMON
+  Token
 } from './types'
+
+const USD_SYMBOL = 'usd'
 
 export default class SwapperCoingeckoClient implements ISwapperCoingeckoClient {
   private client: HttpClient
+  private cache: Array<Token>
 
-  constructor (baseUrl: string) {
-    const requestConfigBuilder = new SwapperCoingeckoConfigBuilder({ baseUrl: baseUrl })
-    const responseHandler = new SwapperCoingeckoHandler()
-    this.client = new DefaultHttpClient({
+  constructor (
+    baseUrl: string,
+    requestConfigBuilder = new SwapperCoingeckoConfigBuilder({ baseUrl: baseUrl }),
+    responseHandler = new SwapperCoingeckoHandler(),
+    client = new DefaultHttpClient({
       responseHandler,
       requestConfigBuilder
     })
-    console.log(this.client)
+  ) {
+    this.client = client
   }
 
-  getTokenPrice (requestPayload: RequestGetTokenPrice): Promise<ResponseGetTokenPrice> {
-    return new Promise(() => console.log(requestPayload))
+  public async getTokensPriceInUsd (requestPayload: RequestGetTokenPrice): Promise<ResponseGetTokenPrice> {
+    const allTokens = await this.getTokens()
+    const idSelectedTokens: Array<string | undefined> = requestPayload.tokens.map((symbolSelectedToken) => {
+      const selectedToken: Token | undefined = allTokens.find((token) => token.symbol === symbolSelectedToken)
+      return selectedToken?.id
+    })
+    const params = {
+      ids: idSelectedTokens.join(','),
+      vs_currencies: USD_SYMBOL
+    }
+    return this.client.get('/simple/price', params)
   }
 
-  getTokens (): Promise<ResponseGetTokens> {
-    return this.client.get('/coins/list', {})
-  }
-
-  getConversionRate (requestPayload: RequestCoversionRate): Promise<ResponseGetConversionRate> {
-    return new Promise(() => console.log(requestPayload))
+  public async getTokens (): Promise<ResponseGetTokens> {
+    if (!this.cache) {
+      this.cache = await this.client.get('/coins/list', {})
+    }
+    return this.cache
   }
 }
