@@ -1,3 +1,5 @@
 export * from './components/SwapComponent'
 export * from './components/SearchCurrencyComponent'
 export * from './components/List'
+export * from './components/ModalKeystorePassword'
+export * from './components/ModalInfo'
