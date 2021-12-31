@@ -12,7 +12,7 @@
     "build": "yarn build:cjs",
     "build:dev": "yarn tsc -b",
     "build:cjs": "yarn tsc --project ./tsconfig.build.json",
-    "test": "echo 'No tests'"
+    "run-with-local-server": "jest"
   },
   "repository": {
     "type": "git",

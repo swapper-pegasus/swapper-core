@@ -14,7 +14,7 @@
     "clean-js-files": "find ./packages/*/src -name '*.js' -type f | xargs rm",
     "clean-map-files": "find ./packages/*/src -name '*.js.map' -type f | xargs rm",
     "clean-buildinfo": "find ./packages/* -name '*.tsbuildinfo' -type f | xargs rm",
-    "clean-nodemodules": "rm -rf ./packages/*/node_modules",
+    "clean-nodemodules": "rm -rf ./packages/*/node_modules && rm -rf ./node_modules",
     "clean-lib": "rm -rf ./packages/*/lib",
     "build": "yarn tsc -b",
     "build-watch": "yarn tsc -b -w",
