@@ -32,5 +32,8 @@
   },
   "devEngines": {
     "node": ">=14.x"
+  },
+  "dependencies": {
+    "@xchainjs/xchain-crypto": "^0.2.6"
   }
 }
