@@ -2,12 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "include": ["src"],
   "exclude": [
-    "packages/*/src/__tests__",
-    "packages/*/node_modules", 
-    "packages/*/lib",
-    "packages/*/coverage",
-    "packages/*/dist",
-    "packages/*/*.spec.ts",
-    "packages/*/*tests"
+    "**/node_modules",
+    "**/coverage",
+    "**/dist",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*tests"
   ],
 }
