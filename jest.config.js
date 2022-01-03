@@ -8,7 +8,7 @@ module.exports = {
             'identity-obj-proxy',
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy'
   },
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
+  moduleFileExtensions: ['ts', 'tsx', 'json'],
   moduleDirectories: ['node_modules'],
   testPathIgnorePatterns: ['lib']
 }
