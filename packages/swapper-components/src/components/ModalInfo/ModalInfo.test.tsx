@@ -39,20 +39,31 @@ function setUpRender (props: object) {
 describe('ModalInfo', () => {
   it('Render with description', () => {
     const component = setUpRender({})
-    component.getByRole('button')
     fireEvent.click(component.getByRole('button'))
     expect(component.baseElement).toMatchSnapshot()
   })
   it('Render with description and title', () => {
     const component = setUpRender({ title: 'Modal title' })
-    component.getByRole('button')
     fireEvent.click(component.getByRole('button'))
     expect(component.baseElement).toMatchSnapshot()
   })
   it('Render with description, title and icon', () => {
     const component = setUpRender({ title: 'Modal title', icon: <Icon className="w-5 h-5 text-warning-dark" type="info" /> })
-    component.getByRole('button')
     fireEvent.click(component.getByRole('button'))
     expect(component.baseElement).toMatchSnapshot()
+  })
+  it('on close with keyboard', () => {
+    const mockOnClose = jest.fn()
+    const component = setUpRender({ onClose: mockOnClose })
+    fireEvent.click(component.getByRole('button'))
+    fireEvent.keyDown(component.getByRole('dialog'), { key: 'esc', keyCode: 27 })
+    expect(mockOnClose).toHaveBeenCalledTimes(1)
+  })
+  it('on close with button', () => {
+    const mockOnClose = jest.fn()
+    const component = setUpRender({ onClose: mockOnClose })
+    fireEvent.click(component.getByRole('button'))
+    fireEvent.click(component.getByTestId('modal-accept-button'))
+    expect(mockOnClose).toHaveBeenCalledTimes(1)
   })
 })

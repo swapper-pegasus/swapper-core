@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { Modal, Input } from '@swapper-org/swapper-elements'
+import { Modal, Input, Button } from '@swapper-org/swapper-elements'
 import { decryptFromKeystore, Keystore } from '@xchainjs/xchain-crypto'
 
 type Props = {
     getSecretPhrase: boolean,
     onGetSecretPhrase: (phrase: string) => void,
-    keystore: Keystore
+    keystore: Keystore,
+    onClose: () => void,
 }
 
-export function ModalKeystorePassword ({ getSecretPhrase, onGetSecretPhrase, keystore }: Props) {
+export function ModalKeystorePassword ({ getSecretPhrase, onGetSecretPhrase, keystore, onClose }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const [password, setPassword] = useState('')
   const [submitedPassword, setSubmitedPassword] = useState('')
@@ -16,6 +17,10 @@ export function ModalKeystorePassword ({ getSecretPhrase, onGetSecretPhrase, key
   const [phrase, setPhrase] = useState<undefined | string>()
 
   useEffect(() => {
+    setErrorPassword(undefined)
+    setPhrase('')
+    setPassword('')
+    setSubmitedPassword('')
     setIsOpen(getSecretPhrase)
   }, [getSecretPhrase])
 
@@ -40,27 +45,32 @@ export function ModalKeystorePassword ({ getSecretPhrase, onGetSecretPhrase, key
   useEffect(() => {
     if (phrase) {
       onGetSecretPhrase(phrase)
-      setPhrase('')
-      setPassword('')
-      setSubmitedPassword('')
-      setErrorPassword(undefined)
-      setIsOpen(false)
+      onClose()
     }
-  }, [phrase, onGetSecretPhrase])
+  }, [phrase, onGetSecretPhrase, onClose])
 
   return (
-    <Modal isOpen={isOpen} onClose={() => setSubmitedPassword(password)}>
-      <div>
-        <Input
-          placeholder="Password"
-          label="Password"
-          name="password"
-          value={password}
-          type="password"
-          onChange={(value) => setPassword(value)}
-          error={errorPassword}
-        />
-      </div>
+    <Modal isOpen={isOpen} onClose={() => {
+      onClose()
+    }}>
+      <>
+        <div>
+          <Input
+            placeholder="Password"
+            label="Password"
+            name="password"
+            value={password}
+            type="password"
+            onChange={(value) => setPassword(value)}
+            error={errorPassword}
+          />
+        </div>
+        <div className="bg-white pt-1 text-right">
+          <Button disabled={password.length === 0} dataTestId='password-continue-button' onClick={() => setSubmitedPassword(password)}>
+            <span>Continuar</span>
+          </Button>
+        </div>
+      </>
     </Modal>
   )
 }

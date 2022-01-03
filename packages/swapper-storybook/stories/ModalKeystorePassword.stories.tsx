@@ -1,14 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ModalKeystorePassword } from '@swapper-org/swapper-components'
+import { Button } from '@swapper-org/swapper-elements'
 import keystore from './keystore-swapper.json'
 
 export default {
   component: ModalKeystorePassword,
   title: 'ModalKeystorePassword',
   argTypes: {
-    getSecretPhrase: {
-      type: 'boolean'
-    },
     keystore: {
       type: 'object'
     }
@@ -16,18 +14,24 @@ export default {
 }
 
 const Template = (args) => {
+  const [isOpen, setIsOpen] = useState(false)
   return (
-    <div style={{ width: '900px' }}>
-      <div id='modalContainer'></div>
-      <ModalKeystorePassword {...args} />
-    </div>
+        <div style={{ width: '900px' }}>
+            <div id="modalContainer"></div>
+            <Button onClick={() => setIsOpen(true)}>Open</Button>
+            <ModalKeystorePassword
+                keystore={args.keystore}
+                onGetSecretPhrase={args.onGetSecretPhrase}
+                getSecretPhrase={isOpen}
+                onClose={() => setIsOpen(false)}
+            />
+        </div>
   )
 }
 
 export const Default = Template.bind({})
 
 Default.args = {
-  getSecretPhrase: false,
   keystore: keystore,
   onGetSecretPhrase: (phrase) => console.log(phrase)
 }
