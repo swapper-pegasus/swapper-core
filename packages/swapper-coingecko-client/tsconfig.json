@@ -7,13 +7,11 @@
   },
   "include": ["./src"],
   "exclude": [
-    "./src/__tests__",
-    "node_modules", 
-    "lib",
-    "coverage",
-    "dist",
-    "*.spec.ts",
-    "*.test.ts",
-    "*tests"
+    "**/node_modules",
+    "**/coverage",
+    "**/dist",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*tests"
   ],
 }

@@ -1,6 +1,6 @@
 {
   "name": "@swapper-org/swapper-components",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "module": "lib/index.js",
@@ -32,5 +32,8 @@
   },
   "devEngines": {
     "node": ">=14.x"
+  },
+  "dependencies": {
+    "@xchainjs/xchain-crypto": "^0.2.6"
   }
 }

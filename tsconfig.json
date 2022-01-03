@@ -19,6 +19,9 @@
     {
       "path": "./packages/swapper-config"
     },
+    {
+      "path": "./packages/swapper-coingecko-client"
+    },
   ],
   "files": []
 }
