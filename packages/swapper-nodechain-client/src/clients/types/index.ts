@@ -13,6 +13,7 @@ import { ResponseGetTransactionBtc, ResponseGetTransactionEth } from './response
 import { ResponseGetTransactionHex } from './responses/ResponseGetTransactionHex'
 import { ResponseGetAddressHistory } from './responses/ResponseGetAddressHistory'
 import { ResponseBroadcastTransaction } from './responses/ResponseBroadcastTransaction'
+import { ResponseGetFeePerByte } from './responses/ResponseGetFeePerByte'
 // REQUESTS
 import { RequestGetAddressBalance } from './requests/RequestGetAddressBalance'
 import { RequestBroadcastTransaction } from './requests/RequestBroadcastTransaction'
@@ -44,6 +45,7 @@ export {
   ResponseGetTransactionEth,
   ResponseGetTransactionHex,
   ResponseGetAddressHistory,
+  ResponseGetFeePerByte,
   ResponseBroadcastTransaction,
   RequestGetAddressBalance,
   RequestBroadcastTransaction,

@@ -1,3 +1,3 @@
 export type RequestGetFeePerByte = {
-    confirmations: string;
+    confirmations: number;
 };
