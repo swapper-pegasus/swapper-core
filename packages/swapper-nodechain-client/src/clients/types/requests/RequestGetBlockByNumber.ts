@@ -1,3 +1,3 @@
 export type RequestGetBlockByNumber = {
-    blockNumber: string;
+    blockNumber: string | number;
 };

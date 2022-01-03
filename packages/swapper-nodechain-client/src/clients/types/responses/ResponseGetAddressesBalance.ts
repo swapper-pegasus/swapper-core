@@ -1,9 +1,9 @@
 import { BaseResponse } from './BaseResponse'
 type Balance = {
-    confirmed: string,
-    unconfirmed: string,
+    confirmed: number,
+    unconfirmed: number,
 }
-type AddressBalance = {
+export type AddressBalance = {
     address: string,
     balance: Balance
 }

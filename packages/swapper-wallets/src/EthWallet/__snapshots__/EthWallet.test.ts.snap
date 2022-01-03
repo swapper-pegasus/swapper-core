@@ -8,7 +8,7 @@ Array [
 ]
 `;
 
-exports[`EthWallet getBalance 1`] = `"1"`;
+exports[`EthWallet getBalance 1`] = `"1000000000000000"`;
 
 exports[`EthWallet transfer 1`] = `
 Object {

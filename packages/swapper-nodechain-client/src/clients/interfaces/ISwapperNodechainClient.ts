@@ -17,6 +17,7 @@ import {
   ResponseGetTransactionHex,
   ResponseGetAddressHistory,
   ResponseBroadcastTransaction,
+  ResponseGetFeePerByte,
   // REQUEST
   RequestGetBlockByNumber,
   RequestGetFeePerByte,
@@ -45,7 +46,7 @@ export default interface ISwapperNodechainClient {
     getAddressUnspent?(requestPayload: RequestGetAddressUnspent): Promise<ResponseGetAddressUnspent>
     getTransactionHex?(requestPayload: RequestGetTransaction): Promise<ResponseGetTransactionHex>
     getAddressHistory?(requestPayload: RequestGetAddressHistory): Promise<ResponseGetAddressHistory>
-    getFeePerByte?(requestPayload: RequestGetFeePerByte): Promise<object>
+    getFeePerByte?(requestPayload: RequestGetFeePerByte): Promise<ResponseGetFeePerByte>
     // ETH Methods
     getGasPrice?(): Promise<ResponseGetGasPrice>
     getTransactionReceipt?(requestPayload: RequestGetTransactionReceipt): Promise<ResponseGetTransactionReceipt>
