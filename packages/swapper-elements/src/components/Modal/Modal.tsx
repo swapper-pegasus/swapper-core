@@ -11,7 +11,6 @@ export function Modal ({ children, isOpen, onClose }: Props) {
   const modalContainer = document.querySelector('#modalContainer')
 
   const handlerKeyPress = (event: { keyCode: number }) => {
-    console.log('event', event)
     if (event.keyCode === 27) {
       onClose()
     }
