@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal } from '@swapper-org/swapper-elements'
+import { Modal, Button } from '@swapper-org/swapper-elements'
 
 type Props = {
   title?: string,
@@ -12,25 +12,32 @@ type Props = {
 export function ModalInfo ({ title, icon, description, isOpen, onClose }: Props) {
   return (
     <Modal isOpen={isOpen} onClose={() => onClose()}>
-      <div className="flex items-start">
-      <div className="mt-3">
-        {
-          title && <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-          {title}
-        </h3>
-        }
-        <div className="flex mt-2">
-          {
-            icon &&
-            <div className='px-2'>
-              { icon }
+      <div>
+        <div className="flex items-start">
+          <div className="mt-3">
+            {
+              title && <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+              {title}
+            </h3>
+            }
+            <div className="flex mt-2">
+              {
+                icon &&
+                <div className='px-2'>
+                  { icon }
+                </div>
+              }
+              <div className="text-sm text-swpGray">
+                {description}
+              </div>
             </div>
-          }
-          <div className="text-sm text-swpGray">
-            {description}
           </div>
         </div>
-      </div>
+        <div className="bg-white pt-3 py-3 text-right">
+          <Button dataTestId='modal-accept-button' onClick={() => onClose()}>
+            <span>Continuar</span>
+          </Button>
+        </div>
       </div>
     </Modal>
   )
