@@ -1935,7 +1935,7 @@ Object {
   "id": 1,
   "jsonrpc": "2.0",
   "result": Object {
-    "broadcasted": "0xe53a38c00f43f001e106aa6d2fc24df2ab56a5c441cfc90d0bcf68fa69d919a6",
+    "broadcasted": "0x4c48389fbd3a048f40a0a3bcbf8e210caa58ab305dfd290810dee8ca53aace08",
   },
 }
 `;
@@ -1945,7 +1945,7 @@ Object {
   "id": 1,
   "jsonrpc": "2.0",
   "result": Object {
-    "estimatedGas": "0x5208",
+    "estimatedGas": 21000,
   },
 }
 `;
@@ -1955,8 +1955,11 @@ Object {
   "id": 1,
   "jsonrpc": "2.0",
   "result": Object {
-    "confirmed": "0x56bc75e2d630e13d0",
-    "unconfirmed": "0x0",
+    "address": "0x625ACaEdeF812d2842eFd2Fb0294682A868455bd",
+    "balance": Object {
+      "confirmed": 99999999999999850000,
+      "unconfirmed": 0,
+    },
   },
 }
 `;
@@ -1969,15 +1972,15 @@ Object {
     Object {
       "address": "0x625ACaEdeF812d2842eFd2Fb0294682A868455bd",
       "balance": Object {
-        "confirmed": "0x56bc75e2d630e13d0",
-        "unconfirmed": "0x0",
+        "confirmed": 99999999999999850000,
+        "unconfirmed": 0,
       },
     },
     Object {
       "address": "0x93261B4021dbd6200Df9B36B151f4ECF34889e94",
       "balance": Object {
-        "confirmed": "0x56bc75e2d63100000",
-        "unconfirmed": "0x0",
+        "confirmed": 100000000000000000000,
+        "unconfirmed": 0,
       },
     },
   ],
@@ -1992,15 +1995,15 @@ Object {
     Object {
       "address": "0x625ACaEdeF812d2842eFd2Fb0294682A868455bd",
       "balance": Object {
-        "confirmed": "0x56bc75e2d630e13d0",
-        "unconfirmed": "0x0",
+        "confirmed": 99999999999999850000,
+        "unconfirmed": 0,
       },
     },
     Object {
       "address": "0x93261B4021dbd6200Df9B36B151f4ECF34889e94",
       "balance": Object {
-        "confirmed": "0x56bc75e2d63100000",
-        "unconfirmed": "0x0",
+        "confirmed": 100000000000000000000,
+        "unconfirmed": 0,
       },
     },
   ],
@@ -2041,7 +2044,7 @@ Object {
   "result": Object {
     "transactions": Array [
       Object {
-        "blockHash": "0x18bfb01b9291729857e8ee107fd01f62e71ca541ed435c23ee0e251461a5dbef",
+        "blockHash": "0xd81ea58f00b6406eac619d909dc7f2d67fe2eca8e2c3ec0d50b57c6a1ab9484f",
         "blockNumber": "0x1",
         "from": "0x625acaedef812d2842efd2fb0294682a868455bd",
         "gas": "0x1e8480",
@@ -2066,7 +2069,7 @@ Object {
   "id": 1,
   "jsonrpc": "2.0",
   "result": Object {
-    "gasPrice": "0x4a817c800",
+    "gasPrice": 20000000000,
   },
 }
 `;
@@ -2076,8 +2079,8 @@ Object {
   "id": 1,
   "jsonrpc": "2.0",
   "result": Object {
-    "latestBlockHash": "0x97af82717ff76daebfdf175bf89db376e18313a6e3b827be8e57da13fbbde5c1",
-    "latestBlockIndex": "0x6",
+    "latestBlockHash": "0xf4bb07646e3d46eae490da5b436510b9dc9239890ecacefa03ab388d212add9a",
+    "latestBlockIndex": 7,
   },
 }
 `;
@@ -2090,17 +2093,17 @@ Object {
     "inputs": Array [
       Object {
         "address": "0x625acaedef812d2842efd2fb0294682a868455bd",
-        "amount": "0x0",
+        "amount": 0,
       },
     ],
     "outputs": Array [
       Object {
         "address": "0x625acaedef812d2842efd2fb0294682a868455bd",
-        "amount": "0x0",
+        "amount": 0,
       },
     ],
     "transaction": Object {
-      "blockHash": "0xad5b1747a8233dbb1e0ca2a73c5453545e2855b2a7a6f49525056da6701dae9b",
+      "blockHash": "0x2848be8e5c1c0414d47fbd437d3864eb369566135c9c2aabaf265eba4a96eb62",
       "blockNumber": "0x2",
       "from": "0x625acaedef812d2842efd2fb0294682a868455bd",
       "gas": "0x1e8480",
@@ -2124,7 +2127,7 @@ Object {
   "id": 1,
   "jsonrpc": "2.0",
   "result": Object {
-    "transactionCount": "0x6",
+    "transactionCount": 7,
   },
 }
 `;
@@ -2134,7 +2137,7 @@ Object {
   "id": 1,
   "jsonrpc": "2.0",
   "result": Object {
-    "blockHash": "0xad5b1747a8233dbb1e0ca2a73c5453545e2855b2a7a6f49525056da6701dae9b",
+    "blockHash": "0x2848be8e5c1c0414d47fbd437d3864eb369566135c9c2aabaf265eba4a96eb62",
     "blockNumber": "0x2",
     "contractAddress": null,
     "cumulativeGasUsed": "0x5208",

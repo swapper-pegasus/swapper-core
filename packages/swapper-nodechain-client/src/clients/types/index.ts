@@ -6,7 +6,7 @@ import { ResponseGetBlockByHashBtc, ResponseGetBlockByHashEth } from './response
 import { ResponseGetTransactionCount } from './responses/ResponseGetTransactionCount'
 import { ResponseGetGasPrice } from './responses/ResponseGetGasPrice'
 import { ResponseGetAddressUnspent } from './responses/ResponseGetAddressUnspent'
-import { ResponseGetAddressesBalance } from './responses/ResponseGetAddressesBalance'
+import { ResponseGetAddressesBalance, AddressBalance } from './responses/ResponseGetAddressesBalance'
 import { ResponseGetTransactionReceipt } from './responses/ResponseGetTransactionReceipt'
 import { ResponseEstimateGas } from './responses/ResponseEstimateGas'
 import { ResponseGetTransactionBtc, ResponseGetTransactionEth } from './responses/ResponseGetTransaction'
@@ -30,6 +30,7 @@ import { RequestGetAddressHistory } from './requests/RequestGetAddressHistory'
 
 export {
   ResponseGetAddressBalance,
+  AddressBalance,
   ResponseGetHeight,
   ResponseGetBlockByNumberBtc,
   ResponseGetBlockByNumberEth,
