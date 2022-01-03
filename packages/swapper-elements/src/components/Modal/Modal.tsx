@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { Button } from '../Button'
 
 type Props = {
   children?: JSX.Element | string;
@@ -10,6 +9,20 @@ type Props = {
 
 export function Modal ({ children, isOpen, onClose }: Props) {
   const modalContainer = document.querySelector('#modalContainer')
+
+  const handlerKeyPress = (event: { keyCode: number }) => {
+    console.log('event', event)
+    if (event.keyCode === 27) {
+      onClose()
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handlerKeyPress, false)
+    return () => {
+      document.removeEventListener('keydown', handlerKeyPress, false)
+    }
+  })
 
   if (!isOpen || !modalContainer) {
     return null
@@ -24,11 +37,6 @@ export function Modal ({ children, isOpen, onClose }: Props) {
               <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all p-6">
                 <div className="bg-white">
                   {children}
-                </div>
-                <div className="bg-white pt-3 py-3 text-right">
-                  <Button dataTestId='modal-accept-button' onClick={() => onClose()}>
-                    <span>Continuar</span>
-                  </Button>
                 </div>
               </div>
             </div>
