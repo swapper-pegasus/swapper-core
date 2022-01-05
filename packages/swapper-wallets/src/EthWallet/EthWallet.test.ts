@@ -12,12 +12,12 @@ const ethAddressB = '0x93261B4021dbd6200Df9B36B151f4ECF34889e94'
 
 describe('EthWallet', () => {
   it('transfer', async () => {
-    const ethWallet = new EthWallet(nodechainUrlServer, Chain.Ropsten, nmenomic, derivativePath)
+    const ethWallet = new EthWallet(nodechainUrlServer, Chain.Ropsten, nmenomic)
     const result = await ethWallet.transfer({ from: ethAddress, to: ethAddressB, value: new BN('1000000000000000000'), data: '' })
     expect(result).toMatchSnapshot()
   })
   it('getAddresses', async () => {
-    const ethWallet = new EthWallet(nodechainUrlServer, Chain.Ropsten, nmenomic, derivativePath)
+    const ethWallet = new EthWallet(nodechainUrlServer, Chain.Ropsten, nmenomic)
     const result = await ethWallet.getAddresses()
     expect(result).toMatchSnapshot()
   })
