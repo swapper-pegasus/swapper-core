@@ -1,8 +1,9 @@
 {
-  "name": "@swapper-org/swapper-coingecko-client",
+  "name": "@swapper-org/swapper-accounting",
   "version": "0.0.39",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "module": "lib/index.js",
   "license": "(GPL-3.0-or-later OR AGPL-3.0-or-later)",
   "files": [
     "lib",
@@ -17,7 +18,7 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:swapper-org/swapper-core.git",
-    "directory": "packages/swapper-coingecko-client"
+    "directory": "packages/swapper-accounting"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -32,7 +33,11 @@
     "node": ">=14.x"
   },
   "dependencies": {
-    "axios": "^0.24.0",
-    "qs": "^6.10.1"
+    "bignumber.js": "^9.0.2"
+  },
+  "peerDependencies": {
+    "@swapper-org/swapper-coingecko-client": "latest",
+    "@swapper-org/swapper-nodechain-client": "latest",
+    "@swapper-org/swapper-wallets": "latest"
   }
 }

@@ -3,14 +3,15 @@ import {
   ResponseBroadcastTransaction,
   ResponseGetAddressesBalance
 } from '@swapper-org/swapper-nodechain-client'
-import { IWallet } from '../interfaces/IWallet'
-import { TxObjectDescription } from './types/TxObject'
 import { Transaction } from '@ethereumjs/tx'
 import Common, { Chain } from '@ethereumjs/common'
 import { Address, PrefixedHexString, bnToHex, privateToAddress } from 'ethereumjs-util'
 import { mnemonicToSeed } from 'bip39'
 import hdkey from 'hdkey'
 import BN from 'bn.js'
+import { IWallet } from '../interfaces/IWallet'
+import { TxObjectDescription } from './types/TxObject'
+import { WalletBalance } from './types/WalletBalance'
 
 export class EthWallet implements IWallet {
   private nodechainClientInstance: SwapperNodechainEthClient
@@ -22,7 +23,7 @@ export class EthWallet implements IWallet {
     nodechainServerUrl: string,
     chain: Chain,
     mnemonic: string,
-    derivationPath: string
+    derivationPath = "m/44'/60'/0'/0/0"
   ) {
     this.nodechainClientInstance = new SwapperNodechainEthClient(
       nodechainServerUrl
@@ -100,13 +101,17 @@ export class EthWallet implements IWallet {
     return [address.toString()]
   }
 
-  public async getBalance (): Promise<string> {
+  public async getBalance (): Promise<WalletBalance> {
     const addresses: string[] = await this.getAddresses()
     const balances: ResponseGetAddressesBalance = await this.nodechainClientInstance.getAddressesBalance({ addresses })
-    const totalBalance: BN = balances.result.reduce((currentBalance, nextBalance) => {
+    const totalConfirmedBalance: BN = balances.result.reduce((currentBalance, nextBalance) => {
       const balanceConfirmed = new BN(nextBalance.balance.confirmed.replace('0x', ''), 16)
       return currentBalance.add(balanceConfirmed)
     }, new BN('0'))
-    return totalBalance.toString(10) // Returns in wei
+    const totalUnconfirmedBalance: BN = balances.result.reduce((currentBalance, nextBalance) => {
+      const balanceConfirmed = new BN(nextBalance.balance.unconfirmed.replace('0x', ''), 16)
+      return currentBalance.add(balanceConfirmed)
+    }, new BN('0'))
+    return { confirmed: totalConfirmedBalance.toString(10), unconfirmed: totalUnconfirmedBalance.toString(10) } // Returns in wei
   }
 }

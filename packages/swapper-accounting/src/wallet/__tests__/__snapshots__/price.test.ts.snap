@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price getSupportedTokenPriceInUsd 1`] = `
+Object {
+  "bitcoin": Object {
+    "usd": "100000",
+  },
+  "ethereum": Object {
+    "usd": "1000",
+  },
+}
+`;
+
+exports[`Price getTokensDataBySymbol 1`] = `
+Array [
+  Object {
+    "id": "ethereum",
+    "name": "Ethereum",
+    "symbol": "eth",
+  },
+  Object {
+    "id": "bitcoin",
+    "name": "Bitcoin",
+    "symbol": "btc",
+  },
+]
+`;

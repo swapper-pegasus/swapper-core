@@ -47,6 +47,12 @@ export default class SwapperCoingeckoClient implements ISwapperCoingeckoClient {
     if (!this.cache) {
       this.cache = await this.client.get('/coins/list', {})
     }
-    return this.cache
+    return new Promise((resolve) => resolve(this.cache))
+  }
+
+  public async getTokenDataBySymbol (tokenSymbols: Array<string>): Promise<ResponseGetTokens> {
+    const tokens = await this.getTokens()
+    const selectedTokens = tokens.filter((token) => tokenSymbols.includes(token.symbol))
+    return selectedTokens
   }
 }

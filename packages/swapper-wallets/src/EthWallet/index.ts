@@ -1,3 +1,4 @@
 import { EthWallet } from './EthWallet'
-
-export { EthWallet }
+import { Chain } from '@ethereumjs/common'
+import { WalletBalance } from './types'
+export { EthWallet, Chain as EthChain, WalletBalance }

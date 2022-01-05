@@ -5,12 +5,20 @@
     "rootDir": "src",
     "baseUrl": ".",
     "paths": {
-      "@swapper-org/swapper-nodechain-client": ["../swapper-nodechain-client"]
+      "@swapper-org/swapper-coingecko-client": ["../swapper-coingecko-client"],
+      "@swapper-org/swapper-nodechain-client": ["../swapper-nodechain-client"],
+      "@swapper-org/swapper-wallets": ["../swapper-wallets"]
     }
   },
   "references": [
     {
-        "path": "../swapper-nodechain-client"
+      "path": "../swapper-coingecko-client",
+    },
+    {
+      "path": "../swapper-nodechain-client",
+    },
+    {
+      "path": "../swapper-wallets",
     },
   ],
   "include": ["./src"],

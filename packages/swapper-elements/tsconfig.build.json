@@ -6,6 +6,6 @@
     "**/coverage",
     "**/dist",
     "**/*.spec.ts",
-    "**/*tests"
+    "**/*.test.ts"
   ]
 }

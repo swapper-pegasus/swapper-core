@@ -1,1 +1,4 @@
-export type ResponseGetTokenPrice = object;
+type UsdConversion = {
+    usd: string
+}
+export type ResponseGetTokenPrice = Record<string, UsdConversion>;

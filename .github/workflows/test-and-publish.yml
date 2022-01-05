@@ -52,7 +52,11 @@ jobs:
             - uses: codecov/codecov-action@v2
               with:
                 token: ${{ secrets.CODECOV_TOKEN_CORE }} # not required for public repos
-                files: ${{github.workspace}}/packages/swapper-elements/coverage/lcov.info,${{github.workspace}}/packages/swapper-components/coverage/lcov.info,${{github.workspace}}/packages/swapper-wallets/coverage/lcov.info,${{github.workspace}}/packages/swapper-coingecko-client/coverage/lcov.info # optional
+                files: ${{github.workspace}}/packages/swapper-elements/coverage/lcov.info, \
+                ${{github.workspace}}/packages/swapper-components/coverage/lcov.info, \
+                ${{github.workspace}}/packages/swapper-wallets/coverage/lcov.info, \
+                ${{github.workspace}}/packages/swapper-coingecko-client/coverage/lcov.info, \
+                ${{github.workspace}}/packages/swapper-accounting/coverage/lcov.info
                 flags: swapper-core # optional
                 name: codecov # optional
                 fail_ci_if_error: true # optional (default = false)
