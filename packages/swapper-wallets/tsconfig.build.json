@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.base.json",
   "include": ["src"],
   "compilerOptions": {
-    "sourceMap": true,
     "outDir": "lib",
     "rootDir": "src",
     "baseUrl": ".",
@@ -15,6 +14,6 @@
     "dist",
     "*.spec.ts",
     "*.test.ts",
-    "*tests"
+    "*.test.ts"
   ],
 }

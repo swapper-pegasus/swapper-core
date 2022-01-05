@@ -12,6 +12,6 @@
     "packages/*/coverage",
     "packages/*/dist",
     "packages/*/*.spec.ts",
-    "packages/*/*tests"
+    "packages/*/*.test.ts"
   ],
 }
