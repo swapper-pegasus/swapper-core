@@ -18,12 +18,12 @@ export type ResponseGetTransactionBtc = BaseResponse & {
 
 type input = {
     address: string,
-    amount: number
+    amount: string
 }
 
 type output = {
     address: string,
-    amount: number
+    amount: string
 }
 
 export type ResponseGetTransactionEth = BaseResponse & {

@@ -1,8 +1,7 @@
 import {
   SwapperNodechainEthClient,
   ResponseBroadcastTransaction,
-  ResponseGetAddressesBalance,
-  AddressBalance
+  ResponseGetAddressesBalance
 } from '@swapper-org/swapper-nodechain-client'
 import { IWallet } from '../interfaces/IWallet'
 import { TxObjectDescription } from './types/TxObject'
@@ -43,10 +42,6 @@ export class EthWallet implements IWallet {
     return node.derive(this.derivationPath)
   }
 
-  private numberToHexa (num: number): string {
-    return '0x' + num.toString(16)
-  }
-
   public async exportPrivateKey () {
     const { privateKey } = await this.hdKey()
     return privateKey.toString('hex')
@@ -69,8 +64,8 @@ export class EthWallet implements IWallet {
     const gasEstimationResponse =
               await this.nodechainClientInstance.estimateGas({
                 tx: {
-                  gasPrice: this.numberToHexa(gasPriceResponse.result.gasPrice),
-                  nonce: this.numberToHexa(getTransactionCountResponse.result.transactionCount),
+                  gasPrice: gasPriceResponse.result.gasPrice,
+                  nonce: getTransactionCountResponse.result.transactionCount,
                   from: txObjectDescription.from,
                   to: txObjectDescription.to,
                   data: txObjectDescription.data,
@@ -108,8 +103,8 @@ export class EthWallet implements IWallet {
   public async getBalance (): Promise<string> {
     const addresses: string[] = await this.getAddresses()
     const balances: ResponseGetAddressesBalance = await this.nodechainClientInstance.getAddressesBalance({ addresses })
-    const totalBalance: BN = balances.result.reduce((currentBalance: BN, nextBalance: AddressBalance) => {
-      const balanceConfirmed = new BN(nextBalance.balance.confirmed)
+    const totalBalance: BN = balances.result.reduce((currentBalance, nextBalance) => {
+      const balanceConfirmed = new BN(nextBalance.balance.confirmed.replace('0x', ''), 16)
       return currentBalance.add(balanceConfirmed)
     }, new BN('0'))
     return totalBalance.toString(10) // Returns in wei

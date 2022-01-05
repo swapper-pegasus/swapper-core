@@ -6,14 +6,13 @@ import { ResponseGetBlockByHashBtc, ResponseGetBlockByHashEth } from './response
 import { ResponseGetTransactionCount } from './responses/ResponseGetTransactionCount'
 import { ResponseGetGasPrice } from './responses/ResponseGetGasPrice'
 import { ResponseGetAddressUnspent } from './responses/ResponseGetAddressUnspent'
-import { ResponseGetAddressesBalance, AddressBalance } from './responses/ResponseGetAddressesBalance'
+import { ResponseGetAddressesBalance } from './responses/ResponseGetAddressesBalance'
 import { ResponseGetTransactionReceipt } from './responses/ResponseGetTransactionReceipt'
 import { ResponseEstimateGas } from './responses/ResponseEstimateGas'
 import { ResponseGetTransactionBtc, ResponseGetTransactionEth } from './responses/ResponseGetTransaction'
 import { ResponseGetTransactionHex } from './responses/ResponseGetTransactionHex'
 import { ResponseGetAddressHistory } from './responses/ResponseGetAddressHistory'
 import { ResponseBroadcastTransaction } from './responses/ResponseBroadcastTransaction'
-import { ResponseGetFeePerByte } from './responses/ResponseGetFeePerByte'
 // REQUESTS
 import { RequestGetAddressBalance } from './requests/RequestGetAddressBalance'
 import { RequestBroadcastTransaction } from './requests/RequestBroadcastTransaction'
@@ -30,7 +29,6 @@ import { RequestGetAddressHistory } from './requests/RequestGetAddressHistory'
 
 export {
   ResponseGetAddressBalance,
-  AddressBalance,
   ResponseGetHeight,
   ResponseGetBlockByNumberBtc,
   ResponseGetBlockByNumberEth,
@@ -46,7 +44,6 @@ export {
   ResponseGetTransactionEth,
   ResponseGetTransactionHex,
   ResponseGetAddressHistory,
-  ResponseGetFeePerByte,
   ResponseBroadcastTransaction,
   RequestGetAddressBalance,
   RequestBroadcastTransaction,
