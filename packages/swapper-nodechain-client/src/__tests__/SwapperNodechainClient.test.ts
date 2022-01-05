@@ -26,7 +26,7 @@ describe('SwapperNodechainClient', () => {
       expect(result).toMatchSnapshot()
     })
     it('getBlockByNumber', async () => {
-      const result = await ethClient.getBlockByNumber({ blockNumber: 1 })
+      const result = await ethClient.getBlockByNumber({ blockNumber: '1' })
       expect(result).toMatchSnapshot()
     })
     it('getBlockByHash', async () => {
@@ -103,7 +103,7 @@ describe('SwapperNodechainClient', () => {
       expect(result).toMatchSnapshot()
     })
     it('getBlockByNumber', async () => {
-      const result = await btcClient.getBlockByNumber({ blockNumber: 1 })
+      const result = await btcClient.getBlockByNumber({ blockNumber: '1' })
       expect(result).toMatchSnapshot()
     })
     it('getBlockByHash', async () => {
@@ -135,7 +135,7 @@ describe('SwapperNodechainClient', () => {
       expect(result).toMatchSnapshot()
     })
     xit('getFeePerByte', async () => {
-      const result = await btcClient.getFeePerByte({ confirmations: 1 })
+      const result = await btcClient.getFeePerByte({ confirmations: '1' })
       expect(result).toMatchSnapshot()
     })
     xit('broadcastTransaction', async () => {

@@ -25,8 +25,7 @@ import {
   ResponseGetTransactionBtc,
   ResponseGetTransactionHex,
   ResponseGetAddressHistory,
-  ResponseBroadcastTransaction,
-  ResponseGetFeePerByte
+  ResponseBroadcastTransaction
 } from './types'
 
 export default class SwapperNodechainBtcClient implements ISwapperNodechainClient {
@@ -55,7 +54,7 @@ export default class SwapperNodechainBtcClient implements ISwapperNodechainClien
     return this.client.post('/rpc', this.buildPayload(requestPayload, 'broadcastTransaction'))
   }
 
-  public getFeePerByte (requestPayload: RequestGetFeePerByte): Promise<ResponseGetFeePerByte> {
+  public getFeePerByte (requestPayload: RequestGetFeePerByte): Promise<object> {
     return this.client.post('/rpc', this.buildPayload(requestPayload, 'getFeePerByte'))
   }
 

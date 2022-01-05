@@ -1,15 +1,15 @@
 import { BaseResponse } from './BaseResponse'
 
 type UtxoStatus = {
-    blockHeight: number,
+    blockHeight: string,
     confirmed: boolean,
 }
 
 type Utxo = {
     status: UtxoStatus,
     txHash: string,
-    value: number,
-    vout: number,
+    value: string,
+    vout: string,
 }
 
 export type ResponseGetAddressUnspent = BaseResponse & {
