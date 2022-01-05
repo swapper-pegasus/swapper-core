@@ -37,6 +37,7 @@
   },
   "peerDependencies": {
     "@swapper-org/swapper-coingecko-client": "latest",
-    "@swapper-org/swapper-nodechain-client": "latest"
+    "@swapper-org/swapper-nodechain-client": "latest",
+    "@swapper-org/swapper-wallets": "latest"
   }
 }
