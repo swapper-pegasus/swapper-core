@@ -3,7 +3,7 @@ type Balance = {
     confirmed: string,
     unconfirmed: string,
 }
-type AddressBalance = {
+export type AddressBalance = {
     address: string,
     balance: Balance
 }
