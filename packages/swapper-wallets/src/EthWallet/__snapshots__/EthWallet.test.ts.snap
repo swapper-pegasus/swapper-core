@@ -8,7 +8,12 @@ Array [
 ]
 `;
 
-exports[`EthWallet getBalance 1`] = `"1"`;
+exports[`EthWallet getBalance 1`] = `
+Object {
+  "confirmed": "1",
+  "unconfirmed": "0",
+}
+`;
 
 exports[`EthWallet transfer 1`] = `
 Object {
