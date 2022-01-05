@@ -55,7 +55,7 @@ jobs:
                 files: ${{github.workspace}}/packages/swapper-elements/coverage/lcov.info, \
                 ${{github.workspace}}/packages/swapper-components/coverage/lcov.info, \
                 ${{github.workspace}}/packages/swapper-wallets/coverage/lcov.info, \
-                ${{github.workspace}}/packages/swapper-coingecko-client/coverage/lcov.info \
+                ${{github.workspace}}/packages/swapper-coingecko-client/coverage/lcov.info, \
                 ${{github.workspace}}/packages/swapper-accounting/coverage/lcov.info
                 flags: swapper-core # optional
                 name: codecov # optional
