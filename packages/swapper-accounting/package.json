@@ -1,0 +1,42 @@
+{
+  "name": "@swapper-org/swapper-accounting",
+  "version": "0.0.38",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "module": "lib/index.js",
+  "license": "(GPL-3.0-or-later OR AGPL-3.0-or-later)",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "yarn build:cjs",
+    "build:dev": "yarn tsc -b",
+    "build:cjs": "yarn tsc --project ./tsconfig.build.json",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:swapper-org/swapper-core.git",
+    "directory": "packages/swapper-accounting"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.3"
+  },
+  "devEngines": {
+    "node": ">=14.x"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.0.2"
+  },
+  "peerDependencies": {
+    "@swapper-org/swapper-coingecko-client": "latest",
+    "@swapper-org/swapper-nodechain-client": "latest"
+  }
+}

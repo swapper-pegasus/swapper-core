@@ -22,6 +22,9 @@
     {
       "path": "./packages/swapper-coingecko-client"
     },
+    {
+      "path": "./packages/swapper-accounting"
+    },
   ],
   "files": []
 }

@@ -1,0 +1,33 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@swapper-org/swapper-coingecko-client": ["../swapper-coingecko-client"],
+      "@swapper-org/swapper-nodechain-client": ["../swapper-nodechain-client"],
+      "@swapper-org/swapper-wallets": ["../swapper-wallets"]
+    }
+  },
+  "references": [
+    {
+      "path": "../swapper-coingecko-client",
+    },
+    {
+      "path": "../swapper-nodechain-client",
+    },
+    {
+      "path": "../swapper-wallets",
+    },
+  ],
+  "include": ["./src"],
+  "exclude": [
+    "packages/*/node_modules", 
+    "packages/*/lib",
+    "packages/*/coverage",
+    "packages/*/dist",
+    "packages/*/*.spec.ts",
+    "packages/*/*.test.ts"
+  ],
+}
