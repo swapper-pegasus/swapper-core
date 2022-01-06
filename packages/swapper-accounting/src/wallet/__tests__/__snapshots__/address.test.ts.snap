@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Addresses getAllAddresses 1`] = `
+Array [
+  Object {
+    "addresses": Array [
+      "Address 1",
+      "Address 2",
+    ],
+    "symbol": "eth",
+  },
+]
+`;
