@@ -4,14 +4,6 @@ import * as Constans from '../../constants'
 describe('Wallet', () => {
   beforeEach(() => jest.resetModules())
   it('getBalances', async () => {
-    jest.mock('../../constants.ts', () => ({
-      ...Constans,
-      SUPPORTED_TOKENS: [Constans.SYMBOL_ETH, Constans.SYMBOL_BTC],
-      MAP_WALLET_CONSTRUCTORS: {
-        [Constans.SYMBOL_ETH]: Constans.WALLET_ETH,
-        [Constans.SYMBOL_BTC]: Constans.WALLET_BTC
-      }
-    }))
     const { getBalances } = require('../wallet.ts')
     const result = await getBalances('')
     expect(result).toMatchSnapshot()
