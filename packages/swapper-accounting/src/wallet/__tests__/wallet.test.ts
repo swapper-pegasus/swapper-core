@@ -1,5 +1,6 @@
-import * as Constans from '../../constants'
 /* eslint-disable @typescript-eslint/no-var-requires */
+import * as Constans from '../../constants'
+
 describe('Wallet', () => {
   beforeEach(() => jest.resetModules())
   it('getBalances', async () => {

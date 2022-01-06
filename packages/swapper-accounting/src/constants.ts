@@ -5,7 +5,7 @@ import { WalletBalance } from '@swapper-org/swapper-wallets'
 
 export const SYMBOL_ETH = 'eth'
 export const WALLET_ETH = 'EthWallet'
-export const SYMBOL_BTC = 'eth'
+export const SYMBOL_BTC = 'btc'
 export const WALLET_BTC = 'BtcWallet'
 export const SUPPORTED_TOKENS = [SYMBOL_ETH]
 export const WEI = 1e18

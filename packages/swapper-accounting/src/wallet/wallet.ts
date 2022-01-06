@@ -37,6 +37,12 @@ async function getTokenBalance (tokenSymbol: string, phrase: string): Promise<To
   if (!Wallets[MAP_WALLET_CONSTRUCTORS[tokenSymbol]]) {
     throw new Error(`Not wallet defined for token ${tokenSymbol}`)
   }
+  if (!converters[tokenSymbol]) {
+    throw new Error(`Not converter defined for token ${tokenSymbol}`)
+  }
+  if (!process.env[`${tokenSymbol.toUpperCase()}_NODE`] || !Number(process.env[`${tokenSymbol.toUpperCase()}_NETWORK`])) {
+    throw new Error(`Not env vars defined for token ${tokenSymbol}`)
+  }
   const walletInstance: Wallets.IWallet = new Wallets[MAP_WALLET_CONSTRUCTORS[tokenSymbol]](
     process.env[`${tokenSymbol.toUpperCase()}_NODE`],
     Number(process.env[`${tokenSymbol.toUpperCase()}_NETWORK`]),
