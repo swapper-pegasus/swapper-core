@@ -12,5 +12,17 @@ Array [
     "priceInUsd": "1000",
     "symbol": "eth",
   },
+  Object {
+    "balance": Object {
+      "confirmed": "0.00000",
+      "unconfirmed": "0.00000",
+    },
+    "name": "Ethereum",
+    "percentageOfPortfolio": "NaN",
+    "priceInUsd": "1000",
+    "symbol": "eth",
+  },
 ]
 `;
+
+exports[`Wallet throw error if there is not wallet for token symbol 1`] = `[Error: Not wallet defined for token RRR]`;

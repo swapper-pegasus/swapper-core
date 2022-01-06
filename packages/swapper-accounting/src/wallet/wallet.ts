@@ -2,12 +2,18 @@ import {
   ResponseGetTokenPrice,
   Token
 } from '@swapper-org/swapper-coingecko-client'
-import { EthWallet, WalletBalance } from '@swapper-org/swapper-wallets'
+import { WalletBalance } from '@swapper-org/swapper-wallets'
 import BN from 'bignumber.js'
+import * as Wallets from '@swapper-org/swapper-wallets'
 import { getSupportedTokenPriceInUsd, getTokensDataBySymbol } from './price'
-import { SUPPORTED_TOKENS, SYMBOL_ETH, DEFAULT_TOKEN } from '../constants'
+import { SUPPORTED_TOKENS, DEFAULT_TOKEN, DEFAULT_BALANCE, MAP_WALLET_CONSTRUCTORS } from '../constants'
 import converters from '../converters'
 import { WalletTokenBalanceData } from '../types'
+
+type TokenBalance = {
+  symbol: string,
+  balance: WalletBalance
+}
 
 function buildTokenData (
   token: Token,
@@ -26,25 +32,22 @@ function buildTokenData (
   }
 }
 
-async function getEthBalance (
-  phrase: string
-): Promise<Record<string, WalletBalance>> {
+async function getTokenBalance (tokenSymbol: string, phrase: string): Promise<TokenBalance> {
   console.log('Real phrase:', phrase)
-  const ethWallet: EthWallet = new EthWallet(
-    process.env.ETH_NODE || '',
-    Number(process.env.ETH_NETWORK),
-    'mobile way service edge man luggage hospital garden dolphin flag never insect' // TODO: Remove, 0xbef81b14c78ad1b0c9b0f5a5a88045c2d8baed1a
-  )
-  const balance = await ethWallet.getBalance()
-  return { [SYMBOL_ETH]: balance }
-}
-
-const mapTokenBalance: Record<
-    string,
-    (phrase: string) => Promise<Record<string, WalletBalance>>
-  > = {
-    [SYMBOL_ETH]: getEthBalance
+  if (!Wallets[MAP_WALLET_CONSTRUCTORS[tokenSymbol]]) {
+    throw new Error(`Not wallet defined for token ${tokenSymbol}`)
   }
+  const walletInstance: Wallets.IWallet = new Wallets[MAP_WALLET_CONSTRUCTORS[tokenSymbol]](
+    process.env[`${tokenSymbol.toUpperCase()}_NODE`],
+    Number(process.env[`${tokenSymbol.toUpperCase()}_NETWORK`]),
+    'mobile way service edge man luggage hospital garden dolphin flag never insect' // TODO: Replace with real phrase
+  )
+  const balance = await walletInstance.getBalance()
+  return {
+    symbol: tokenSymbol,
+    balance
+  }
+}
 
 function getTotalBalanceInUsd (
   walletTokenBalancesData: WalletTokenBalanceData[]
@@ -83,22 +86,23 @@ async function getBalances (phrase: string): Promise<WalletTokenBalanceData[]> {
   const pricesInUsd: ResponseGetTokenPrice =
       await getSupportedTokenPriceInUsd()
 
-  const balancesPromises: Promise<Record<string, WalletBalance>>[] =
+  const balancesPromises: Promise<TokenBalance>[] =
       SUPPORTED_TOKENS.map((symbol) => {
-        return mapTokenBalance[symbol](phrase)
+        return getTokenBalance(symbol, phrase)
       })
 
-  const balances: Record<string, WalletBalance>[] = await Promise.all(
+  const balances: TokenBalance[] = await Promise.all(
     balancesPromises
   )
 
   const tokens: Array<Token> = await getTokensDataBySymbol()
 
-  const tokensData = SUPPORTED_TOKENS.map((tokenSymbol, index) => {
+  const tokensData = SUPPORTED_TOKENS.map((tokenSymbol) => {
     const tokenData = tokens.find((token) => token.symbol === tokenSymbol) || DEFAULT_TOKEN
+    const findBalance = balances.find((balance) => balance.symbol === tokenSymbol)?.balance || DEFAULT_BALANCE
     return buildTokenData(
       tokenData,
-      balances[index][tokenSymbol],
+      findBalance,
       pricesInUsd[tokenData.id].usd
     )
   })

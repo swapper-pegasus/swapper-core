@@ -1,22 +1,17 @@
 import * as Wallets from '@swapper-org/swapper-wallets'
-import { SUPPORTED_TOKENS, SYMBOL_ETH } from '../constants'
+import { SUPPORTED_TOKENS, MAP_WALLET_CONSTRUCTORS } from '../constants'
 
 type TokenAddresses = {
     symbol: string,
     addresses: Array<string>
 }
 
-const mapWalletConstructors: Record<string, string> = {
-  [SYMBOL_ETH]: 'EthWallet',
-  btc: 'BtcWallet'
-}
-
 async function getTokenAddresses (tokenSymbol: string, phrase: string): Promise<TokenAddresses> {
-  console.log(phrase, Wallets)
-  const walletInstance: Wallets.IWallet = new Wallets[mapWalletConstructors[tokenSymbol]](
+  console.log(phrase)
+  const walletInstance: Wallets.IWallet = new Wallets[MAP_WALLET_CONSTRUCTORS[tokenSymbol]](
     process.env[`${tokenSymbol.toUpperCase()}_NODE`],
     Number(process.env[`${tokenSymbol.toUpperCase()}_NETWORK`]),
-    'mobile way service edge man luggage hospital garden dolphin flag never insect'
+    'mobile way service edge man luggage hospital garden dolphin flag never insect' // TODO: Replace with real phrase
   )
   const addresses = await walletInstance.getAddresses()
   return {
