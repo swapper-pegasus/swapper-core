@@ -1,6 +1,6 @@
 {
   "name": "@swapper-org/swapper-accounting",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "module": "lib/index.js",
