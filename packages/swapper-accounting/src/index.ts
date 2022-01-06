@@ -1,4 +1,5 @@
 import { getBalances } from './wallet/wallet'
-import { WalletTokenBalanceData } from './types'
+import { getAddresses } from './wallet/address'
+import { WalletTokenBalanceData, TokenAddresses } from './types'
 
-export { getBalances, WalletTokenBalanceData }
+export { getBalances, getAddresses, TokenAddresses, WalletTokenBalanceData }

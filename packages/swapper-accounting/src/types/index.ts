@@ -11,3 +11,8 @@ export type Converters = {
     fromMinorToMayor: (amount: string) => string;
     fromMayorToMinor: (amount: string) => string;
 }
+
+export type TokenAddresses = {
+    symbol: string,
+    addresses: Array<string>
+}

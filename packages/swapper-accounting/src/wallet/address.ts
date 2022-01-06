@@ -1,10 +1,6 @@
 import * as Wallets from '@swapper-org/swapper-wallets'
 import { SUPPORTED_TOKENS, MAP_WALLET_CONSTRUCTORS } from '../constants'
-
-type TokenAddresses = {
-    symbol: string,
-    addresses: Array<string>
-}
+import { TokenAddresses } from '../types'
 
 async function getTokenAddresses (tokenSymbol: string, phrase: string): Promise<TokenAddresses> {
   console.log(phrase)
