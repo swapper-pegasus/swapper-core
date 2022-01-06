@@ -14,3 +14,7 @@ Array [
   },
 ]
 `;
+
+exports[`Wallet missing symbol on coingecko response 1`] = `[Error: Not converter defined for token btc]`;
+
+exports[`Wallet throw error if there is not wallet for token symbol 1`] = `[Error: Not wallet defined for token RRR]`;

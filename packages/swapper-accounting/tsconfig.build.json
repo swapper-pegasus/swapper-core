@@ -9,7 +9,7 @@
   "exclude": [
     "./src/__tests__",
     "node_modules", 
-    "lib",
+    "packages/*/lib",
     "coverage",
     "dist",
     "*.spec.ts",
