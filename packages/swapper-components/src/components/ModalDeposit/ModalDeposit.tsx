@@ -11,7 +11,7 @@ type Props = {
 export function ModalDeposit ({ tokenName, address, isOpen, onClose }: Props) {
   return (
     <Modal isOpen={isOpen} onClose={() => onClose()}>
-      <div>
+      <div data-testid='deposit-modal'>
         <div className="flex flex-col justify-center items-center">
           <Alert
             type='warning'

@@ -7,6 +7,7 @@ type Props = {
   title?: string,
   description: string,
   type: AlertType,
+  dataTestId?: string,
 };
 
 const iconsMapp = {
@@ -18,10 +19,11 @@ const iconsMapp = {
 export function Alert ({
   title,
   description,
-  type
+  type,
+  dataTestId
 }: Props) {
   return (
-    <div className={`flex items-center bg-${type} border-l-4 border-${type}-darkest text-${type}-dark py-2`}>
+    <div data-testid={dataTestId} className={`flex items-center bg-${type} border-l-4 border-${type}-darkest text-${type}-dark py-2`}>
       <div className="px-2">
         <Icon type={iconsMapp[type]} className='w-6 h-6'/>
       </div>

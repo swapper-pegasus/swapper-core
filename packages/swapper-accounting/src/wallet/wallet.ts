@@ -6,7 +6,7 @@ import { WalletBalance } from '@swapper-org/swapper-wallets'
 import BN from 'bignumber.js'
 import * as Wallets from '@swapper-org/swapper-wallets'
 import { getSupportedTokenPriceInUsd, getTokensDataBySymbol } from './price'
-import { SUPPORTED_TOKENS, DEFAULT_TOKEN, DEFAULT_BALANCE, MAP_WALLET_CONSTRUCTORS } from '../constants'
+import { SUPPORTED_TOKENS, DEFAULT_TOKEN, DEFAULT_BALANCE, MAP_WALLET_CONSTRUCTORS, MAP_VAR_ENVS } from '../constants'
 import converters from '../converters'
 import { WalletTokenBalanceData } from '../types'
 
@@ -33,19 +33,19 @@ function buildTokenData (
 }
 
 async function getTokenBalance (tokenSymbol: string, phrase: string): Promise<TokenBalance> {
-  console.log('Real phrase:', phrase)
+  console.log('Real phrase in swapper-accounting:', phrase)
   if (!Wallets[MAP_WALLET_CONSTRUCTORS[tokenSymbol]]) {
     throw new Error(`Not wallet defined for token ${tokenSymbol}`)
   }
   if (!converters[tokenSymbol]) {
     throw new Error(`Not converter defined for token ${tokenSymbol}`)
   }
-  if (!process.env[`${tokenSymbol.toUpperCase()}_NODE`] || !Number(process.env[`${tokenSymbol.toUpperCase()}_NETWORK`])) {
+  if (!MAP_VAR_ENVS[`${tokenSymbol.toUpperCase()}_NODE`] || !Number(MAP_VAR_ENVS[`${tokenSymbol.toUpperCase()}_NETWORK`])) {
     throw new Error(`Not env vars defined for token ${tokenSymbol}`)
   }
   const walletInstance: Wallets.IWallet = new Wallets[MAP_WALLET_CONSTRUCTORS[tokenSymbol]](
-    process.env[`${tokenSymbol.toUpperCase()}_NODE`],
-    Number(process.env[`${tokenSymbol.toUpperCase()}_NETWORK`]),
+    MAP_VAR_ENVS[`${tokenSymbol.toUpperCase()}_NODE`],
+    Number(MAP_VAR_ENVS[`${tokenSymbol.toUpperCase()}_NETWORK`]),
     'mobile way service edge man luggage hospital garden dolphin flag never insect' // TODO: Replace with real phrase
   )
   const balance = await walletInstance.getBalance()
@@ -64,7 +64,7 @@ function getTotalBalanceInUsd (
         walletTokenBalanceData.balance.confirmed
       ).times(walletTokenBalanceData.priceInUsd)
       return totalInUsd.plus(tokenBalanceInUsd)
-    }, new BN('0'))
+    }, new BN('1'))
     .toFixed(2)
 }
 

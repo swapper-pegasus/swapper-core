@@ -8,12 +8,14 @@ Array [
       "unconfirmed": "0.00000",
     },
     "name": "Ethereum",
-    "percentageOfPortfolio": "NaN",
+    "percentageOfPortfolio": "0",
     "priceInUsd": "1000",
     "symbol": "eth",
   },
 ]
 `;
+
+exports[`Wallet missing ennvironment variables 1`] = `[Error: Not env vars defined for token eth]`;
 
 exports[`Wallet missing symbol on coingecko response 1`] = `[Error: Not converter defined for token btc]`;
 

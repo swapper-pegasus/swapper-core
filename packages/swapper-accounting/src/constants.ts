@@ -21,3 +21,9 @@ export const DEFAULT_BALANCE: WalletBalance = {
 export const MAP_WALLET_CONSTRUCTORS: Record<string, string> = {
   [SYMBOL_ETH]: WALLET_ETH
 }
+
+// Limitation dot env plugin => https://github.com/mrsteele/dotenv-webpack/issues/70
+export const MAP_VAR_ENVS = {
+  ETH_NETWORK: process.env.ETH_NETWORK,
+  ETH_NODE: process.env.ETH_NODE
+}
