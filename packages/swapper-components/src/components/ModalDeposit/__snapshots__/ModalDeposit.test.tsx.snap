@@ -87,7 +87,7 @@ exports[`ModalInfo Render with description 1`] = `
                     data-testid="modal-accept-button"
                   >
                     <span>
-                      Continuar
+                      Continue
                     </span>
                   </button>
                 </div>
