@@ -8,7 +8,7 @@ Array [
       "unconfirmed": "0.00000",
     },
     "name": "Ethereum",
-    "percentageOfPortfolio": "NaN",
+    "percentageOfPortfolio": "0",
     "priceInUsd": "1000",
     "symbol": "eth",
   },
