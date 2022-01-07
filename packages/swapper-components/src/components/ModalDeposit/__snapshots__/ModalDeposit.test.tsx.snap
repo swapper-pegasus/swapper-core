@@ -10,7 +10,7 @@ exports[`ModalInfo Render with description 1`] = `
       <div
         aria-labelledby="modal-title"
         aria-modal="true"
-        class="fixed inset-0 overflow-y-auto w-2/6 m-auto"
+        class="fixed inset-0 overflow-y-auto w-3/6 m-auto"
         role="dialog"
       >
         <div
@@ -39,7 +39,7 @@ exports[`ModalInfo Render with description 1`] = `
                   class="flex flex-col justify-center items-center"
                 >
                   <div
-                    class="flex items-center bg-warning border-l-4 border-warning-darkest text-warning-dark py-2"
+                    class="flex items-center bg-warning border-l-4 border-warning-darkest text-warning-dark py-2 min-w-full"
                   >
                     <div
                       class="px-2"
