@@ -37,4 +37,16 @@ describe('Wallet', () => {
       expect(e).toMatchSnapshot()
     }
   })
+  it('missing ennvironment variables', async () => {
+    jest.mock('../../constants.ts', () => ({
+      ...Constans,
+      MAP_VAR_ENVS: {}
+    }))
+    try {
+      const { getBalances } = require('../wallet.ts')
+      await getBalances('')
+    } catch (e) {
+      expect(e).toMatchSnapshot()
+    }
+  })
 })
