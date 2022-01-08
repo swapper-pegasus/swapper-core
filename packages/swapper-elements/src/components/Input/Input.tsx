@@ -29,6 +29,7 @@ export function Input ({
     <div className='flex flex-col'>
       {label && <label className={styleLabel} htmlFor={name}>{label}</label>}
       <input
+        autoComplete="off"
         data-testid={`${name}-input`}
         disabled={disabled}
         type={type}

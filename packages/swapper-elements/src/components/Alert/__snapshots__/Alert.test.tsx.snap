@@ -2,7 +2,7 @@
 
 exports[`Alert error 1`] = `
 <div
-  className="flex items-center bg-error border-l-4 border-error-darkest text-error-dark py-2"
+  className="flex items-center bg-error border-l-4 border-error-darkest text-error-dark py-2 min-w-full"
 >
   <div
     className="px-2"
@@ -38,7 +38,7 @@ exports[`Alert error 1`] = `
 
 exports[`Alert success 1`] = `
 <div
-  className="flex items-center bg-success border-l-4 border-success-darkest text-success-dark py-2"
+  className="flex items-center bg-success border-l-4 border-success-darkest text-success-dark py-2 min-w-full"
 >
   <div
     className="px-2"
@@ -74,7 +74,7 @@ exports[`Alert success 1`] = `
 
 exports[`Alert warning 1`] = `
 <div
-  className="flex items-center bg-warning border-l-4 border-warning-darkest text-warning-dark py-2"
+  className="flex items-center bg-warning border-l-4 border-warning-darkest text-warning-dark py-2 min-w-full"
 >
   <div
     className="px-2"

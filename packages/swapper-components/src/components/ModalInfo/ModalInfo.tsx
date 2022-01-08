@@ -35,7 +35,7 @@ export function ModalInfo ({ title, icon, description, isOpen, onClose }: Props)
         </div>
         <div className="bg-white pt-3 py-3 text-right">
           <Button dataTestId='modal-accept-button' onClick={() => onClose()}>
-            <span>Continuar</span>
+            <span>Continue</span>
           </Button>
         </div>
       </div>

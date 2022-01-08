@@ -39,7 +39,7 @@ exports[`ModalInfo Render with description 1`] = `
                   class="flex flex-col justify-center items-center"
                 >
                   <div
-                    class="flex items-center bg-warning border-l-4 border-warning-darkest text-warning-dark py-2"
+                    class="flex items-center bg-warning border-l-4 border-warning-darkest text-warning-dark py-2 min-w-full"
                   >
                     <div
                       class="px-2"
@@ -87,7 +87,7 @@ exports[`ModalInfo Render with description 1`] = `
                     data-testid="modal-accept-button"
                   >
                     <span>
-                      Continuar
+                      Continue
                     </span>
                   </button>
                 </div>

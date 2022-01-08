@@ -5,13 +5,17 @@
     "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
-      "@swapper-org/swapper-elements": ["../swapper-elements"]
+      "@swapper-org/swapper-elements": ["../swapper-elements"],
+      "@swapper-org/swapper-wallets": ["../swapper-wallets"]
     }
   },
   "references": [
     {
-        "path": "../swapper-elements"
+      "path": "../swapper-elements"
     },
+    {
+      "path": "../swapper-wallets"
+    }
   ],
   "include": ["./src"],
   "exclude": [

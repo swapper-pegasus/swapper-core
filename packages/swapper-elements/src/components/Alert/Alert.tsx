@@ -23,7 +23,7 @@ export function Alert ({
   dataTestId
 }: Props) {
   return (
-    <div data-testid={dataTestId} className={`flex items-center bg-${type} border-l-4 border-${type}-darkest text-${type}-dark py-2`}>
+    <div data-testid={dataTestId} className={`flex items-center bg-${type} border-l-4 border-${type}-darkest text-${type}-dark py-2 min-w-full`}>
       <div className="px-2">
         <Icon type={iconsMapp[type]} className='w-6 h-6'/>
       </div>

@@ -67,7 +67,7 @@ export function ModalKeystorePassword ({ getSecretPhrase, onGetSecretPhrase, key
         </div>
         <div className="bg-white pt-1 text-right">
           <Button disabled={password.length === 0} dataTestId='password-continue-button' onClick={() => setSubmitedPassword(password)}>
-            <span>Continuar</span>
+            <span>Continue</span>
           </Button>
         </div>
       </>
