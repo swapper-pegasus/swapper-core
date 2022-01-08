@@ -3,10 +3,11 @@ import '@testing-library/jest-dom'
 import { ModalDeposit } from './ModalDeposit'
 import { Button } from '@swapper-org/swapper-elements'
 import { render, fireEvent } from '@testing-library/react'
+import { Token } from '@swapper-org/swapper-coingecko-client'
 
 type Props = {
     address: string,
-    tokenName: string,
+    token: Token,
     onClose: () => void
 }
 
@@ -23,7 +24,7 @@ const ModalTestComponent = (props: Props) => {
 
 const defaultProps = {
   address: '0xABC',
-  tokenName: 'Bitcoin',
+  token: { name: 'Bitcoin', symbol: 'btc', id: '1' },
   isOpen: true,
   onClose: jest.fn()
 }
@@ -38,7 +39,7 @@ function setUpRender (props: object) {
   )
 }
 
-describe('ModalInfo', () => {
+describe('ModalDeposit', () => {
   it('Render with description', () => {
     const component = setUpRender({})
     fireEvent.click(component.getByRole('button'))

@@ -1,8 +1,9 @@
+import { Token } from '@swapper-org/swapper-coingecko-client'
 import { WalletBalance } from '@swapper-org/swapper-wallets'
+
 export type WalletTokenBalanceData = {
     balance: WalletBalance; // Mayor units
-    name: string;
-    symbol: string;
+    token: Token;
     priceInUsd: string;
     percentageOfPortfolio: string;
 };
