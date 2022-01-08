@@ -38,8 +38,8 @@
     "@ethereumjs/common": "^2.6.0",
     "@ethereumjs/tx": "^3.4.0",
     "axios": "^0.24.0",
+    "bignumber.js": "^9.0.2",
     "bip39": "^3.0.4",
-    "bn.js": "5.1.2",
     "hdkey": "^2.0.1",
     "qs": "^6.10.1"
   },
