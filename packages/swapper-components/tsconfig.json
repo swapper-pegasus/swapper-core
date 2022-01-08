@@ -11,7 +11,7 @@
   },
   "references": [
     {
-        "path": "../swapper-elements"
+      "path": "../swapper-elements"
     },
     {
       "path": "../swapper-wallets"

@@ -10,7 +10,7 @@ exports[`ModalInfo Render with description 1`] = `
       <div
         aria-labelledby="modal-title"
         aria-modal="true"
-        class="fixed inset-0 overflow-y-auto w-3/6 m-auto"
+        class="fixed inset-0 overflow-y-auto w-2/6 m-auto"
         role="dialog"
       >
         <div
