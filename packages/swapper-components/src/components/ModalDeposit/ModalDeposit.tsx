@@ -37,7 +37,3 @@ export function ModalDeposit ({ token = DEFAULT_TOKEN, address, isOpen, onClose 
     </Modal>
   )
 }
-
-ModalDeposit.defaultProps = {
-  token: DEFAULT_TOKEN
-}

@@ -7,7 +7,7 @@ import { Token } from '@swapper-org/swapper-coingecko-client'
 
 type Props = {
     address: string,
-    token: Token,
+    token?: Token,
     onClose: () => void
 }
 
@@ -24,7 +24,6 @@ const ModalTestComponent = (props: Props) => {
 
 const defaultProps = {
   address: '0xABC',
-  token: { name: 'Bitcoin', symbol: 'btc', id: '1' },
   isOpen: true,
   onClose: jest.fn()
 }
@@ -40,7 +39,12 @@ function setUpRender (props: object) {
 }
 
 describe('ModalDeposit', () => {
-  it('Render default', () => {
+  it('Render with custom token', () => {
+    const component = setUpRender({ token: { name: 'Bitcoin', symbol: 'btc', id: '1' } })
+    fireEvent.click(component.getByRole('button'))
+    expect(component.baseElement).toMatchSnapshot()
+  })
+  it('Render with default token', () => {
     const component = setUpRender({})
     fireEvent.click(component.getByRole('button'))
     expect(component.baseElement).toMatchSnapshot()
