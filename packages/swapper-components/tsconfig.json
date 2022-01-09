@@ -6,7 +6,8 @@
     "baseUrl": ".",
     "paths": {
       "@swapper-org/swapper-elements": ["../swapper-elements"],
-      "@swapper-org/swapper-wallets": ["../swapper-wallets"]
+      "@swapper-org/swapper-wallets": ["../swapper-wallets"],
+      "@swapper-org/swapper-coingecko-client": ["../swapper-coingecko-client"]
     }
   },
   "references": [
@@ -15,6 +16,9 @@
     },
     {
       "path": "../swapper-wallets"
+    },
+    {
+      "path": "../swapper-coingecko-client"
     }
   ],
   "include": ["./src"],
