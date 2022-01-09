@@ -17,7 +17,7 @@ export default class SwapperNodechainConfigBuilder implements RequestConfigBuild
 
   constructor ({ baseUrl }: {baseUrl: string;}) {
     this.baseUrl = baseUrl
-    this.headers = {}
+    this.headers = { 'Access-Control-Allow-Origin': '*' }
   }
 
   public async build (
