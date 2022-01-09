@@ -3,8 +3,8 @@ import { Modal, Button, Alert } from '@swapper-org/swapper-elements'
 import { Token } from '@swapper-org/swapper-coingecko-client'
 
 type Props = {
-  address: string,
-  token: Token,
+  address?: string,
+  token?: Token,
   isOpen: boolean,
   onClose: () => void;
 };
@@ -16,7 +16,7 @@ export function ModalDeposit ({ token, address, isOpen, onClose }: Props) {
         <div className="flex flex-col justify-center items-center">
           <Alert
             type='warning'
-            description={`Sending any crypto asset besides ${token.name} to this address may result in the total loss of your funds`}
+            description={`Sending any crypto asset besides ${token?.name} to this address may result in the total loss of your funds`}
           />
           <div className="mt-3">
             <p className='font-medium'>{address}</p>
