@@ -38,6 +38,7 @@ export function ModalWithdrawal ({ tokenName, isLoading, error, address, balance
                     error && <Alert
                       type='error'
                       description={error}
+                      dataTestId='error-modal-withdrawal'
                     />
                   }
                   <div className="mt-2 min-w-full">

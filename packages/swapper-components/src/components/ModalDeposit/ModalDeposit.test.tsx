@@ -40,7 +40,7 @@ function setUpRender (props: object) {
 }
 
 describe('ModalDeposit', () => {
-  it('Render with description', () => {
+  it('Render default', () => {
     const component = setUpRender({})
     fireEvent.click(component.getByRole('button'))
     expect(component.baseElement).toMatchSnapshot()

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalInfo Render with description 1`] = `
+exports[`ModalDeposit Render default 1`] = `
 <body>
   <div>
     <div
