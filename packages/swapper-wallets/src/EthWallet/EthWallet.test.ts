@@ -1,6 +1,6 @@
 import { EthWallet } from '../EthWallet'
 import { Chain } from '@ethereumjs/common'
-import BN from 'bn.js'
+import BN from 'bignumber.js'
 
 const nodechainUrlServer = 'http://localhost:7001'
 const ethAddress = '0x625ACaEdeF812d2842eFd2Fb0294682A868455bd'

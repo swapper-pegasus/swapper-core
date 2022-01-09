@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
+import { ResponseBroadcastTransaction } from '@swapper-org/swapper-nodechain-client'
 import {
   IWallet,
   WalletBalance
@@ -11,9 +12,14 @@ class MockWallet implements IWallet {
     return new Promise((resolve) => resolve(response))
   }
 
-  public transfer (): Promise<Object> {
-    console.log('MOCK NOT IMPLEMENTED')
-    return new Promise((resolve) => resolve({}))
+  public transfer (): Promise<ResponseBroadcastTransaction> {
+    return new Promise((resolve) => resolve({
+      id: 1,
+      jsonrpc: '123',
+      result: {
+        broadcasted: 'DEADADEDP'
+      }
+    }))
   }
 
   public getAddresses (): Promise<string[]> {

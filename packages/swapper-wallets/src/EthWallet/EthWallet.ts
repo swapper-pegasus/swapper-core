@@ -5,10 +5,10 @@ import {
 } from '@swapper-org/swapper-nodechain-client'
 import { Transaction } from '@ethereumjs/tx'
 import Common, { Chain } from '@ethereumjs/common'
-import { Address, PrefixedHexString, bnToHex, privateToAddress } from 'ethereumjs-util'
+import { Address, PrefixedHexString, privateToAddress } from 'ethereumjs-util'
 import { mnemonicToSeed } from 'bip39'
 import hdkey from 'hdkey'
-import BN from 'bn.js'
+import BN from 'bignumber.js'
 import { IWallet } from '../interfaces/IWallet'
 import { TxObjectDescription } from './types/TxObject'
 import { WalletBalance } from './types/WalletBalance'
@@ -43,6 +43,10 @@ export class EthWallet implements IWallet {
     return node.derive(this.derivationPath)
   }
 
+  private bnToHex (value: BN): PrefixedHexString {
+    return '0x' + value.toString(16)
+  }
+
   public async exportPrivateKey () {
     const { privateKey } = await this.hdKey()
     return privateKey.toString('hex')
@@ -52,7 +56,7 @@ export class EthWallet implements IWallet {
     txObjectDescription: TxObjectDescription
   ): Promise<ResponseBroadcastTransaction> {
     const hdKey = await this.hdKey()
-    const valueHexFormat: PrefixedHexString = bnToHex(
+    const valueHexFormat: PrefixedHexString = this.bnToHex(
       txObjectDescription.value
     )
     const getTransactionCountResponse =
@@ -69,7 +73,7 @@ export class EthWallet implements IWallet {
                   nonce: getTransactionCountResponse.result.transactionCount,
                   from: txObjectDescription.from,
                   to: txObjectDescription.to,
-                  data: txObjectDescription.data,
+                  data: txObjectDescription.data || '',
                   value: valueHexFormat
                 }
               })
@@ -106,11 +110,11 @@ export class EthWallet implements IWallet {
     const balances: ResponseGetAddressesBalance = await this.nodechainClientInstance.getAddressesBalance({ addresses })
     const totalConfirmedBalance: BN = balances.result.reduce((currentBalance, nextBalance) => {
       const balanceConfirmed = new BN(nextBalance.balance.confirmed.replace('0x', ''), 16)
-      return currentBalance.add(balanceConfirmed)
+      return currentBalance.plus(balanceConfirmed)
     }, new BN('0'))
     const totalUnconfirmedBalance: BN = balances.result.reduce((currentBalance, nextBalance) => {
       const balanceConfirmed = new BN(nextBalance.balance.unconfirmed.replace('0x', ''), 16)
-      return currentBalance.add(balanceConfirmed)
+      return currentBalance.plus(balanceConfirmed)
     }, new BN('0'))
     return { confirmed: totalConfirmedBalance.toString(10), unconfirmed: totalUnconfirmedBalance.toString(10) } // Returns in wei
   }

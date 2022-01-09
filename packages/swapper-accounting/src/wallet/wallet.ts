@@ -2,13 +2,14 @@ import {
   ResponseGetTokenPrice,
   Token
 } from '@swapper-org/swapper-coingecko-client'
-import { WalletBalance } from '@swapper-org/swapper-wallets'
+import { TxObjectDescription, WalletBalance } from '@swapper-org/swapper-wallets'
 import BN from 'bignumber.js'
 import * as Wallets from '@swapper-org/swapper-wallets'
 import { getSupportedTokenPriceInUsd, getTokensDataBySymbol } from './price'
 import { SUPPORTED_TOKENS, DEFAULT_TOKEN, DEFAULT_BALANCE, MAP_WALLET_CONSTRUCTORS, MAP_VAR_ENVS } from '../constants'
 import converters from '../converters'
 import { WalletTokenBalanceData } from '../types'
+import { ResponseBroadcastTransaction } from '@swapper-org/swapper-nodechain-client'
 
 type TokenBalance = {
   symbol: string,
@@ -25,8 +26,7 @@ function buildTokenData (
       confirmed: converters[token.symbol].fromMinorToMayor(balance.confirmed),
       unconfirmed: converters[token.symbol].fromMinorToMayor(balance.unconfirmed)
     },
-    name: token.name || '-',
-    symbol: token.symbol || '-',
+    token: token,
     priceInUsd: pricesInUsd,
     percentageOfPortfolio: '-'
   }
@@ -118,4 +118,14 @@ async function getBalances (phrase: string): Promise<WalletTokenBalanceData[]> {
   return tokensDataWithPercentage
 }
 
-export { getBalances, WalletTokenBalanceData }
+function getTransferHandler (phrase: string, tokenSymbol: string): (txObject: TxObjectDescription) => Promise<ResponseBroadcastTransaction> {
+  console.log('Real phrase on getTransferHandler: ', phrase)
+  const walletInstance: Wallets.IWallet = new Wallets[MAP_WALLET_CONSTRUCTORS[tokenSymbol]](
+    MAP_VAR_ENVS[`${tokenSymbol.toUpperCase()}_NODE`],
+    Number(MAP_VAR_ENVS[`${tokenSymbol.toUpperCase()}_NETWORK`]),
+    'mobile way service edge man luggage hospital garden dolphin flag never insect' // TODO: Replace with real phrase
+  )
+  return walletInstance.transfer.bind(walletInstance)
+}
+
+export { getBalances, getTransferHandler, WalletTokenBalanceData }

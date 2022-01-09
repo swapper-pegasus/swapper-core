@@ -1,5 +1,2 @@
-import { WalletBalance } from './WalletBalance'
-
-export {
-  WalletBalance
-}
+export * from './TxObject'
+export * from './WalletBalance'

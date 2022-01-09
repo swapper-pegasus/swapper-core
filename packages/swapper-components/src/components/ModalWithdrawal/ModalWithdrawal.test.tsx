@@ -20,6 +20,7 @@ const defaultProps = {
   tokenName: 'Ethereum',
   balance: { confirmed: '12.23123', unconfirmed: '0' },
   isOpen: true,
+  isLoading: false,
   onClose: jest.fn(),
   onSend: jest.fn()
 }
@@ -43,6 +44,19 @@ describe('ModalWithdrawal', () => {
     fireEvent.change(component.getByTestId('amount-input'), { target: { value: '1.2' } })
     fireEvent.click(component.getByTestId('modal-withdrawal-button'))
     expect(mockOnSend).toHaveBeenCalledWith('0xAAAA', '1.2')
+  })
+  it('Loading state', () => {
+    const mockOnSend = jest.fn()
+    const component = setUpRender({ onSend: mockOnSend, isLoading: true })
+    fireEvent.click(component.getByTestId('button-open-modal'))
+    expect(component.baseElement).toMatchSnapshot()
+  })
+  it('Modal with error', () => {
+    const mockOnSend = jest.fn()
+    const component = setUpRender({ onSend: mockOnSend, error: 'Request error.' })
+    fireEvent.click(component.getByTestId('button-open-modal'))
+    const error = fireEvent.click(component.getByTestId('error-modal-withdrawal'))
+    expect(error).toBeTruthy()
   })
   it('Close on cancel', () => {
     const mockOnClose = jest.fn()
