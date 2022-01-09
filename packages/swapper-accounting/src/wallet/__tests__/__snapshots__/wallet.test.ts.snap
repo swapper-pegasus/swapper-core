@@ -7,12 +7,25 @@ Array [
       "confirmed": "0.00000",
       "unconfirmed": "0.00000",
     },
-    "name": "Ethereum",
     "percentageOfPortfolio": "0",
     "priceInUsd": "1000",
-    "symbol": "eth",
+    "token": Object {
+      "id": "ethereum",
+      "name": "Ethereum",
+      "symbol": "eth",
+    },
   },
 ]
+`;
+
+exports[`Wallet getTransferHandler 1`] = `
+Object {
+  "id": 1,
+  "jsonrpc": "123",
+  "result": Object {
+    "broadcasted": "DEADADEDP",
+  },
+}
 `;
 
 exports[`Wallet missing ennvironment variables 1`] = `[Error: Not env vars defined for token eth]`;

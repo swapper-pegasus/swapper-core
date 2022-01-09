@@ -49,4 +49,10 @@ describe('Wallet', () => {
       expect(e).toMatchSnapshot()
     }
   })
+  it('getTransferHandler', async () => {
+    const { getTransferHandler } = require('../wallet.ts')
+    const withdrawal = await getTransferHandler(' ab cd ef', Constans.SYMBOL_ETH)
+    const result = await withdrawal()
+    expect(result).toMatchSnapshot()
+  })
 })
